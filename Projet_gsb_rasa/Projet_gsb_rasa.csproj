@@ -79,6 +79,12 @@
     <Compile Include="fichefrais.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
+    <Compile Include="FMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMenu.Designer.cs">
+      <DependentUpon>FMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     <Compile Include="Visiteur.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FMenu.resx">
+      <DependentUpon>FMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
