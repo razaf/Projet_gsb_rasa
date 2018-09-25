@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projet_gsb_rasa
 {
-    public partial class Form1 : Form
+    public partial class FConnexion : Form
     {
-        public Form1()
+        public FConnexion()
         {
             InitializeComponent();
         }
