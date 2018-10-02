@@ -16,5 +16,10 @@ namespace Projet_gsb_rasa
         {
             InitializeComponent();
         }
+
+        private void FMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

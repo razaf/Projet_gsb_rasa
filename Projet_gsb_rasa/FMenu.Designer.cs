@@ -81,6 +81,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FMenu";
             this.Text = "FMenu";
+            this.Load += new System.EventHandler(this.FMenu_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);

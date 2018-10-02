@@ -109,6 +109,7 @@
     <Compile Include="MEDICAMENT.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modele.cs" />
     <Compile Include="MOTIF.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
@@ -146,6 +147,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="EDMX GSB RASA.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -179,6 +181,7 @@
       <DependentUpon>EDMX GSB RASA.edmx</DependentUpon>
       <LastGenOutput>EDMX GSB RASA.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\logo.gif" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
