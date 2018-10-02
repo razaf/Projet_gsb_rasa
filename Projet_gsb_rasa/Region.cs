@@ -18,6 +18,7 @@ namespace Projet_gsb_rasa
         public Region()
         {
             this.Visiteur1 = new HashSet<Visiteur>();
+            this.FraisForfait = new HashSet<FraisForfait>();
         }
     
         public int idRegion { get; set; }
@@ -29,5 +30,7 @@ namespace Projet_gsb_rasa
         public virtual Visiteur Visiteur { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Visiteur> Visiteur1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FraisForfait> FraisForfait { get; set; }
     }
 }
