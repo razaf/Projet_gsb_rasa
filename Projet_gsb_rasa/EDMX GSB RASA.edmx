@@ -38,6 +38,7 @@
           <Property Name="id" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="libelle" Type="char" MaxLength="20" />
           <Property Name="montant" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="idRegion" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Laboratoire">
           <Key>
@@ -186,6 +187,18 @@
             </Principal>
             <Dependent Role="fichefrais">
               <PropertyRef Name="idVisiteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FraisForf__idReg__5CD6CB2B">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="FraisForfait" Type="Self.FraisForfait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="idRegion" />
+            </Principal>
+            <Dependent Role="FraisForfait">
+              <PropertyRef Name="idRegion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -411,6 +424,10 @@
             <End Role="Visiteur" EntitySet="Visiteur" />
             <End Role="fichefrais" EntitySet="fichefrais" />
           </AssociationSet>
+          <AssociationSet Name="FK__FraisForf__idReg__5CD6CB2B" Association="Self.FK__FraisForf__idReg__5CD6CB2B">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="FraisForfait" EntitySet="FraisForfait" />
+          </AssociationSet>
           <AssociationSet Name="FK__LigneFrai__idFra__267ABA7A" Association="Self.FK__LigneFrai__idFra__267ABA7A">
             <End Role="FraisForfait" EntitySet="FraisForfait" />
             <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
@@ -499,6 +516,7 @@
           <NavigationProperty Name="Secteur" Relationship="Self.FK_SECTEUR" FromRole="Region" ToRole="Secteur" />
           <NavigationProperty Name="Visiteur" Relationship="Self.FK_VISITEUR" FromRole="Region" ToRole="Visiteur" />
           <NavigationProperty Name="Visiteur1" Relationship="Self.Travailler" FromRole="Region" ToRole="Visiteur" />
+          <NavigationProperty Name="FraisForfait" Relationship="GSB_Anjaka_SamuelModel.FK__FraisForf__idReg__5CD6CB2B" FromRole="Region" ToRole="FraisForfait" />
         </EntityType>
         <EntityType Name="Secteur">
           <Key>
@@ -668,6 +686,10 @@
             <End Role="Visiteur" EntitySet="Visiteur" />
             <End Role="RAPPORT" EntitySet="RAPPORT" />
           </AssociationSet>
+          <AssociationSet Name="FK__FraisForf__idReg__5CD6CB2B" Association="GSB_Anjaka_SamuelModel.FK__FraisForf__idReg__5CD6CB2B">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="FraisForfait" EntitySet="FraisForfait" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Etat">
           <Key>
@@ -709,6 +731,8 @@
           <Property Name="libelle" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="montant" Type="Decimal" Precision="5" Scale="2" />
           <NavigationProperty Name="LigneFraisForfait" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFrai__idFra__267ABA7A" FromRole="FraisForfait" ToRole="LigneFraisForfait" />
+          <Property Name="idRegion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Region" Relationship="GSB_Anjaka_SamuelModel.FK__FraisForf__idReg__5CD6CB2B" FromRole="FraisForfait" ToRole="Region" />
         </EntityType>
         <EntityType Name="LigneFraisForfait">
           <Key>
@@ -952,6 +976,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__FraisForf__idReg__5CD6CB2B">
+          <End Type="GSB_Anjaka_SamuelModel.Region" Role="Region" Multiplicity="1" />
+          <End Type="GSB_Anjaka_SamuelModel.FraisForfait" Role="FraisForfait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="idRegion" />
+            </Principal>
+            <Dependent Role="FraisForfait">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1040,6 +1076,7 @@
           <EntitySetMapping Name="FraisForfait">
             <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.FraisForfait">
               <MappingFragment StoreEntitySet="FraisForfait">
+                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
                 <ScalarProperty Name="montant" ColumnName="montant" />
                 <ScalarProperty Name="libelle" ColumnName="libelle" />
                 <ScalarProperty Name="id" ColumnName="id" />

@@ -4,28 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="04810ae28ecd45ad99c7b95ca3ce9d4f" Name="Diagram1" ZoomLevel="55">
+      <Diagram DiagramId="04810ae28ecd45ad99c7b95ca3ce9d4f" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Laboratoire" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Region" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Secteur" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Visiteur" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Region" Width="1.5" PointX="1" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Secteur" Width="1.5" PointX="1.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Visiteur" Width="1.5" PointX="3.5" PointY="6.875" IsExpanded="true" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK_Laboratoire" ManuallyRouted="false" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK_SECTEUR" ManuallyRouted="false" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK_VISITEUR" ManuallyRouted="false" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK_VISITEURSECTEUR" ManuallyRouted="false" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.Travailler" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Etat" Width="1.5" PointX="3" PointY="8.375" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Etat" Width="1.5" PointX="1.75" PointY="12.875" />
         <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.FAMILLE" Width="1.5" PointX="6" PointY="19" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.fichefrais" Width="1.5" PointX="5.25" PointY="2.75" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.FraisForfait" Width="1.5" PointX="8.25" PointY="12.375" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.LigneFraisForfait" Width="1.5" PointX="10.5" PointY="4.125" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.LigneFraisHorsForfait" Width="1.5" PointX="7.5" PointY="9" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.MEDECIN" Width="1.5" PointX="6" PointY="14.875" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.fichefrais" Width="1.5" PointX="5" PointY="10.625" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.FraisForfait" Width="1.5" PointX="7.375" PointY="7.5" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.LigneFraisForfait" Width="1.5" PointX="5.125" PointY="7.5" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.LigneFraisHorsForfait" Width="1.5" PointX="7.5" PointY="11.125" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.MEDECIN" Width="1.5" PointX="9.375" PointY="9.125" />
         <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.MEDICAMENT" Width="1.5" PointX="8.25" PointY="18.5" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.MOTIF" Width="1.5" PointX="6" PointY="12.625" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.MOTIF" Width="1.5" PointX="6.875" PointY="4.875" />
         <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.OFFRIR" Width="1.5" PointX="10.5" PointY="1.25" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.RAPPORT" Width="1.5" PointX="8.25" PointY="0.75" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.SPECIALITE" Width="1.5" PointX="3.75" PointY="15.5" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.RAPPORT" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.SPECIALITE" Width="1.5" PointX="10.875" PointY="10.75" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK__fichefrai__idEta__1ED998B2" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.medicament_fk" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK__fichefrai__idVis__1FCDBCEB" />
@@ -38,6 +38,7 @@
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.rapport_fk3" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.offrir_fk1" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.rapport_fk1" />
+        <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK__FraisForf__idReg__5CD6CB2B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
