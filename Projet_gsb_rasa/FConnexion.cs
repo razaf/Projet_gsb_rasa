@@ -40,8 +40,7 @@ namespace Projet_gsb_rasa
         {
             bool verif = false;
            
-            string message1;
-            string message2;
+           
             string message = "Erreur de saisie:\n\t" ;
             if (textBoxID.Text.Trim().Length == 0)
             {
