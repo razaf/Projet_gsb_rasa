@@ -47,6 +47,7 @@
             this.pictureBoxLogoGSB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogoGSB.TabIndex = 0;
             this.pictureBoxLogoGSB.TabStop = false;
+            this.pictureBoxLogoGSB.Click += new System.EventHandler(this.pictureBoxLogoGSB_Click);
             // 
             // labelIdentifiez
             // 
@@ -74,6 +75,7 @@
             // 
             this.textBoxMdp.Location = new System.Drawing.Point(310, 104);
             this.textBoxMdp.Name = "textBoxMdp";
+            this.textBoxMdp.PasswordChar = '*';
             this.textBoxMdp.Size = new System.Drawing.Size(100, 20);
             this.textBoxMdp.TabIndex = 3;
             // 
@@ -99,6 +101,7 @@
             this.buttonQuitter.TabIndex = 5;
             this.buttonQuitter.Text = "Quitter";
             this.buttonQuitter.UseVisualStyleBackColor = true;
+            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
             // 
             // FConnexion
             // 

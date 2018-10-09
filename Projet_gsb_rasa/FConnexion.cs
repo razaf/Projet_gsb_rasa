@@ -36,10 +36,49 @@ namespace Projet_gsb_rasa
         {
             /*Application.Run(new FMenu());*/
         }
+        private void test()
+        {
+            bool verif = false;
+           
+            string message1;
+            string message2;
+            string message = "Erreur de saisie:\n\t" ;
+            if (textBoxID.Text.Trim().Length == 0)
+            {
 
+                message = ""+"\u25C9 id vide\n\t ";
+                verif = true;
+               
+            }
+            if (textBoxMdp.Text.Trim().Length == 0)
+            {
+                
+                 message = ""+"\u25C9 mdp vide\n\t ";
+                verif = true;
+               
+            }
+
+            if (verif == true)
+            {
+                MessageBox.Show(message);
+            }
+
+            
+
+        }
         private void buttonOk_Click(object sender, EventArgs e)
         {
+            test();
+        }
 
+        private void pictureBoxLogoGSB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
