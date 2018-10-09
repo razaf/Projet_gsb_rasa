@@ -16,6 +16,7 @@ namespace Projet_gsb_rasa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Modele.init();
             Application.Run(new FConnexion());
         }
     }
