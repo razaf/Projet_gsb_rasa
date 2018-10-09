@@ -39,20 +39,19 @@ namespace Projet_gsb_rasa
         private void test()
         {
             bool verif = false;
-           
-           
+
             string message = "Erreur de saisie:\n\t" ;
             if (textBoxID.Text.Trim().Length == 0)
             {
 
-                message = ""+"\u25C9 id vide\n\t ";
+                message += "\u25C9 id vide\n\t ";
                 verif = true;
                
             }
             if (textBoxMdp.Text.Trim().Length == 0)
             {
                 
-                 message = ""+"\u25C9 mdp vide\n\t ";
+                 message += "\u25C9 mdp vide\n\t ";
                 verif = true;
                
             }
