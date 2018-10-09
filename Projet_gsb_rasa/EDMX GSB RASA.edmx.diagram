@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="04810ae28ecd45ad99c7b95ca3ce9d4f" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Laboratoire" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Region" Width="1.5" PointX="1" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Region" Width="1.5" PointX="10.125" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Secteur" Width="1.5" PointX="1.75" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="GSB_Anjaka_SamuelModel.Visiteur" Width="1.5" PointX="3.5" PointY="6.875" IsExpanded="true" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK_Laboratoire" ManuallyRouted="false" />
