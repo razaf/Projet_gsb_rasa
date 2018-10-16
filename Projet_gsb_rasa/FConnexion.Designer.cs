@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBoxLogoGSB = new System.Windows.Forms.PictureBox();
             this.labelIdentifiez = new System.Windows.Forms.Label();
-            this.textBoxID = new System.Windows.Forms.TextBox();
-            this.textBoxMdp = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtMDP = new System.Windows.Forms.TextBox();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonQuitter = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoGSB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,21 +65,21 @@
             this.labelIdentifiez.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelIdentifiez.Click += new System.EventHandler(this.labelIdentifiez_Click);
             // 
-            // textBoxID
+            // txtID
             // 
-            this.textBoxID.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxID.Location = new System.Drawing.Point(310, 78);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(100, 20);
-            this.textBoxID.TabIndex = 1;
+            this.txtID.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtID.Location = new System.Drawing.Point(310, 78);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(100, 20);
+            this.txtID.TabIndex = 1;
             // 
-            // textBoxMdp
+            // txtMDP
             // 
-            this.textBoxMdp.Location = new System.Drawing.Point(310, 104);
-            this.textBoxMdp.Name = "textBoxMdp";
-            this.textBoxMdp.PasswordChar = '*';
-            this.textBoxMdp.Size = new System.Drawing.Size(100, 20);
-            this.textBoxMdp.TabIndex = 3;
+            this.txtMDP.Location = new System.Drawing.Point(310, 104);
+            this.txtMDP.Name = "txtMDP";
+            this.txtMDP.PasswordChar = '*';
+            this.txtMDP.Size = new System.Drawing.Size(100, 20);
+            this.txtMDP.TabIndex = 3;
             // 
             // buttonOk
             // 
@@ -103,6 +105,11 @@
             this.buttonQuitter.UseVisualStyleBackColor = true;
             this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // FConnexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,8 +117,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonQuitter);
             this.Controls.Add(this.buttonOk);
-            this.Controls.Add(this.textBoxMdp);
-            this.Controls.Add(this.textBoxID);
+            this.Controls.Add(this.txtMDP);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.labelIdentifiez);
             this.Controls.Add(this.pictureBoxLogoGSB);
             this.Name = "FConnexion";
@@ -127,10 +134,11 @@
 
         private System.Windows.Forms.PictureBox pictureBoxLogoGSB;
         private System.Windows.Forms.Label labelIdentifiez;
-        private System.Windows.Forms.TextBox textBoxID;
-        private System.Windows.Forms.TextBox textBoxMdp;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtMDP;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonQuitter;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

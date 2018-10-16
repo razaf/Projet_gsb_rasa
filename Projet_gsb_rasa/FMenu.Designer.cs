@@ -70,6 +70,7 @@
             this.saisieDeFraisToolStripMenuItem.Name = "saisieDeFraisToolStripMenuItem";
             this.saisieDeFraisToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.saisieDeFraisToolStripMenuItem.Text = "Saisie de frais";
+            this.saisieDeFraisToolStripMenuItem.Click += new System.EventHandler(this.saisieDeFraisToolStripMenuItem_Click);
             // 
             // FMenu
             // 
