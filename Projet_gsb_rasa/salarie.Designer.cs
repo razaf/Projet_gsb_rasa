@@ -30,13 +30,11 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.visiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paramettreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budjetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historiqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.responsalbitésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visiteurParRégionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,19 +54,10 @@
             // 
             // visiteurToolStripMenuItem
             // 
-            this.visiteurToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sToolStripMenuItem,
-            this.visiteurParRégionToolStripMenuItem});
             this.visiteurToolStripMenuItem.Name = "visiteurToolStripMenuItem";
-            this.visiteurToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.visiteurToolStripMenuItem.Text = "Visiteur";
-            // 
-            // sToolStripMenuItem
-            // 
-            this.sToolStripMenuItem.Name = "sToolStripMenuItem";
-            this.sToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sToolStripMenuItem.Text = "visiteur par secteur";
-            this.sToolStripMenuItem.Click += new System.EventHandler(this.sToolStripMenuItem_Click);
+            this.visiteurToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.visiteurToolStripMenuItem.Text = "liste des visiteur";
+            this.visiteurToolStripMenuItem.Click += new System.EventHandler(this.visiteurToolStripMenuItem_Click);
             // 
             // paramettreToolStripMenuItem
             // 
@@ -94,7 +83,7 @@
             // historiqueToolStripMenuItem
             // 
             this.historiqueToolStripMenuItem.Name = "historiqueToolStripMenuItem";
-            this.historiqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.historiqueToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.historiqueToolStripMenuItem.Text = "historique";
             // 
             // responsalbitésToolStripMenuItem
@@ -103,12 +92,6 @@
             this.responsalbitésToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.responsalbitésToolStripMenuItem.Text = "responsabilités";
             this.responsalbitésToolStripMenuItem.Click += new System.EventHandler(this.responsalbitésToolStripMenuItem_Click);
-            // 
-            // visiteurParRégionToolStripMenuItem
-            // 
-            this.visiteurParRégionToolStripMenuItem.Name = "visiteurParRégionToolStripMenuItem";
-            this.visiteurParRégionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.visiteurParRégionToolStripMenuItem.Text = "visiteur par région ";
             // 
             // salarie
             // 
@@ -130,12 +113,10 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem visiteurToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem paramettreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem budjetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historiqueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem responsalbitésToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem visiteurParRégionToolStripMenuItem;
     }
 }
