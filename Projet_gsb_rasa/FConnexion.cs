@@ -32,33 +32,30 @@ namespace Projet_gsb_rasa
             this.Close();*/
 
         }
-        public static void ThreadProc()
+        
+
+        private void VerificationContenu()
         {
-            /*Application.Run(new FMenu());*/
-        }
-        private void test()
-        {
-            bool verif = false;
-           
-            string message1;
-            string message2;
+            bool erreur = false;
+            
+            
             string message = "Erreur de saisie:\n\t" ;
-            if (textBoxID.Text.Trim().Length == 0)
+            if (txtID.Text.Trim().Length == 0)
             {
 
                 message += "\u25C9 id vide\n\t ";
-                verif = true;
+                erreur = true;
                
             }
-            if (textBoxMdp.Text.Trim().Length == 0)
+            if (txtMDP.Text.Trim().Length == 0)
             {
                 
                  message += "\u25C9 mdp vide\n\t ";
-                verif = true;
+                erreur = true;
                
             }
-
-            if (verif == true)
+            
+            if (erreur == true)
             {
                 MessageBox.Show(message);
             }
@@ -66,9 +63,36 @@ namespace Projet_gsb_rasa
             
 
         }
+        
+        
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            test();
+            //VerificationContenu();
+            string id = txtID.Text.ToString();
+            string mdp = Modele.GetMd5Hash(txtMDP.Text.ToString()).ToUpper();
+            if (Modele.VerificationID(id)==true)
+            {
+                if(Modele.VerificationMDP(id, mdp)==true)
+                {
+                    MessageBox.Show("Vous etes identifiez");
+                    System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
+                    t.Start();
+                    this.Close();
+                    
+
+
+                }
+                else
+                {
+                    MessageBox.Show("mdp mauvais");
+                }
+            }
+            else
+            {
+                MessageBox.Show("id mauvais");
+            }
+            
+
         }
 
         private void pictureBoxLogoGSB_Click(object sender, EventArgs e)
@@ -83,5 +107,13 @@ namespace Projet_gsb_rasa
             fsO.Show();*/
             this.Close();
         }
+
+
+        public static void ThreadProc()
+        {
+            Application.Run(new FMenu());
+        }
+
+
     }
 }

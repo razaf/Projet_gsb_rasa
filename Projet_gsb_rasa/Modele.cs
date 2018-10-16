@@ -20,8 +20,12 @@ namespace Projet_gsb_rasa
             /* Instantiation d’un objet de la classe typée chaine de connexion SqlConnection */
             maConnexion = new GSB_Anjaka_SamuelEntities();
         }
+        public static Visiteur GetUtilisateurConnecte()
+        {
+            return utilisateurConnecte;
+        }
 
-        private static string GetMd5Hash(string PasswdSaisi)
+        public static string GetMd5Hash(string PasswdSaisi)
         {
             byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(PasswdSaisi);
             byte[] hash = (MD5.Create()).ComputeHash(inputBytes);
@@ -32,13 +36,30 @@ namespace Projet_gsb_rasa
             }
             return sb.ToString();
         }
-
-        public static string validConnexion(string id, string mp)
+        public static bool VerificationID(string id)
         {
-            string message = "";
-            // Ecrire le code qui renvoie le message à afficher et mets à jour les variables utilisateurConnecte et connexionValide, la comparaison des mots de passes se fera via
-            utilisateurConnecte.dateEmbauche.Substring(2).Equals(GetMd5Hash(mp));
-            return message;
+            bool vretour = false;
+            List<Visiteur> lesVisiteurs = Modele.listeLesVisiteurs();
+            foreach (Visiteur unVisteur in lesVisiteurs)
+            {
+                if (unVisteur.identifiant == id)
+                {
+                    vretour = true;
+                    utilisateurConnecte = unVisteur;
+                    break;
+                }
+            }
+            return vretour;
+        }
+        public static bool VerificationMDP(string id, string mdp)
+        {
+            bool vretour = false;
+            Visiteur visiteurs = getVisiteur(id);
+            if (visiteurs.password.Substring(2).Equals(mdp) )
+            {
+                vretour = true;
+            }
+            return vretour;
         }
 
        public static Object RegionParSecteur(int idSecteur)
@@ -52,6 +73,20 @@ namespace Projet_gsb_rasa
                            .OrderBy(x => x.libRegion);
             return LQuery.ToList();
 
+         }*/
+        public static List<Visiteur> listeLesVisiteurs()
+        {
+            return maConnexion.Visiteur.ToList();
+        }
+        public static Visiteur getVisiteur(string id)
+        {
+            
+            var LQuery =  maConnexion.Visiteur.ToList()
+                              .Where(x => x.identifiant == id);
+
+            return ((Visiteur) LQuery.ToList()[0]);
+        }
+            
         }
 
       //  public static Object ResponsableParRegion()

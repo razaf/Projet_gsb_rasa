@@ -15,9 +15,15 @@ namespace Projet_gsb_rasa
         public FMenu()
         {
             InitializeComponent();
+            
         }
 
         private void FMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saisieDeFraisToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
