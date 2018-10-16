@@ -41,15 +41,26 @@ namespace Projet_gsb_rasa
             return message;
         }
 
-       /* public static Object valider(string identifiant)
+       public static Object RegionParSecteur(int idSecteur)
         {
-            var LQuery = maConnexion.Visiteur.ToList()
-                           .Where(x => x.nom == identifiant)
-                           .Select(x => new { x.nomCompositeur, x.prenomCompositeur, x.STYLE.libStyle, x.anNais, x.anMort, x.remarque })
-                           .OrderBy(x => x.nomCompositeur);
+            var LQuery = maConnexion.Region.ToList()
+
+                           .Where(x => x.idSecteur == idSecteur )
+                           .Select(x => new { x.libRegion })
+                        
+                          // .Select(x => new { x.Visiteur.nom, x.Visiteur.prenom, x.Visiteur.rue, x.Visiteur.cp, x.Visiteur.ville, x.Visiteur.dateEmbauche, x.Visiteur.identifiant, x.Visiteur.password })
+                           .OrderBy(x => x.libRegion);
             return LQuery.ToList();
 
-        }*/
+        }
 
+      //  public static Object ResponsableParRegion()
+    
+
+        public static List<Secteur>ListSecteur()
+        {
+            return maConnexion.Secteur.ToList();
+        }
+        
     }
 }

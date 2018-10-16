@@ -16,5 +16,20 @@ namespace Projet_gsb_rasa
         {
             InitializeComponent();
         }
+
+        private void sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void responsalbitésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void paramettreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
