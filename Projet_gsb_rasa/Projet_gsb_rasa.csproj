@@ -79,12 +79,6 @@
     <Compile Include="fichefrais.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
-    <Compile Include="FMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FMenu.Designer.cs">
-      <DependentUpon>FMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="FConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,11 +130,11 @@
     <Compile Include="Region.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
-    <Compile Include="salarie.cs">
+    <Compile Include="FMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="salarie.Designer.cs">
-      <DependentUpon>salarie.cs</DependentUpon>
+    <Compile Include="FMenu.Designer.cs">
+      <DependentUpon>FMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Secteur.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
@@ -151,9 +145,6 @@
     <Compile Include="Visiteur.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FMenu.resx">
-      <DependentUpon>FMenu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FConnexion.resx">
       <DependentUpon>FConnexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,8 +164,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="salarie.resx">
-      <DependentUpon>salarie.cs</DependentUpon>
+    <EmbeddedResource Include="FMenu.resx">
+      <DependentUpon>FMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="EDMX GSB RASA.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

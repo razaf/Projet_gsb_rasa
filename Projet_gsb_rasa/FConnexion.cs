@@ -111,7 +111,7 @@ namespace Projet_gsb_rasa
 
         public static void ThreadProc()
         {
-            Application.Run(new salarie());
+            Application.Run(new FMenu());
         }
 
 
