@@ -102,7 +102,9 @@ namespace Projet_gsb_rasa
 
         private void buttonQuitter_Click(object sender, EventArgs e)
         {
-          
+           /* lblSecteur fsO;
+            fsO = new lblSecteur();
+            fsO.Show();*/
             this.Close();
         }
 
