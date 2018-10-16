@@ -7,9 +7,9 @@ using System.Security.Cryptography;
 
 namespace Projet_gsb_rasa
 {
+   
 
-
-    public static class Modele
+   public static class Modele
     {
         private static GSB_Anjaka_SamuelEntities maConnexion;
         private static Visiteur utilisateurConnecte;
@@ -55,47 +55,47 @@ namespace Projet_gsb_rasa
         {
             bool vretour = false;
             Visiteur visiteurs = getVisiteur(id);
-            if (visiteurs.password.Substring(2).Equals(mdp))
+            if (visiteurs.password.Substring(2).Equals(mdp) )
             {
                 vretour = true;
             }
             return vretour;
         }
 
-        public static Object RegionParSecteur(int idSecteur)
+       public static Object RegionParSecteur(int idSecteur)
         {
             var LQuery = maConnexion.Region.ToList()
 
-                           .Where(x => x.idSecteur == idSecteur)
+                           .Where(x => x.idSecteur == idSecteur )
                            .Select(x => new { x.libRegion })
-
-                           // .Select(x => new { x.Visiteur.nom, x.Visiteur.prenom, x.Visiteur.rue, x.Visiteur.cp, x.Visiteur.ville, x.Visiteur.dateEmbauche, x.Visiteur.identifiant, x.Visiteur.password })
+                        
+                          // .Select(x => new { x.Visiteur.nom, x.Visiteur.prenom, x.Visiteur.rue, x.Visiteur.cp, x.Visiteur.ville, x.Visiteur.dateEmbauche, x.Visiteur.identifiant, x.Visiteur.password })
                            .OrderBy(x => x.libRegion);
             return LQuery.ToList();
 
         }
+
+      //  public static Object ResponsableParRegion()
+    
+
+        public static List<Secteur>ListSecteur()
+        {
+            return maConnexion.Secteur.ToList();
+        }
+        
+         }*/
         public static List<Visiteur> listeLesVisiteurs()
         {
             return maConnexion.Visiteur.ToList();
         }
         public static Visiteur getVisiteur(string id)
         {
-
-            var LQuery = maConnexion.Visiteur.ToList()
+            
+            var LQuery =  maConnexion.Visiteur.ToList()
                               .Where(x => x.identifiant == id);
 
-            return ((Visiteur)LQuery.ToList()[0]);
+            return ((Visiteur) LQuery.ToList()[0]);
         }
-
-    
-
-      //  public static Object ResponsableParRegion()
-    
-
-        public static List<Secteur> ListSecteur()
-        {
-            return maConnexion.Secteur.ToList();
-        }
-        
+            
     }
 }
