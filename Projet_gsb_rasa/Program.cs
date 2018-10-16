@@ -19,10 +19,6 @@ namespace Projet_gsb_rasa
             Modele.init();
             Application.Run(new FConnexion());
         }
-        public static void ThreadProc()
-        {
-            Application.Run(new FMenu());
-        }
 
     }
 }
