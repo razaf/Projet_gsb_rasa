@@ -13,7 +13,7 @@ namespace Projet_gsb_rasa
     {
         private static GSB_Anjaka_SamuelEntities maConnexion;
         private static Visiteur utilisateurConnecte;
-        private static bool connexionValide;
+        private static string specialite;
 
         public static void init()
         {
