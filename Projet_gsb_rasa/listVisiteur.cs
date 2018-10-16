@@ -61,8 +61,8 @@ namespace Projet_gsb_rasa
 
         private void bindingSource1_CurrentChanged_1(object sender, EventArgs e)
         {
-            {
-             /*   bsSource.DataSource = ((Region)bsSource.Current).libRegion.ToList();
+            {/*
+               bsSource.DataSource = ((Region)bsSource.Current).libRegion.ToList();
                 dgvResponsable.DataSource = bsResponsable;
                 for (int i = 0; i < dgvResponsable.ColumnCount; i++)
                 {

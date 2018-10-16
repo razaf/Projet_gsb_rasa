@@ -83,7 +83,7 @@ namespace Projet_gsb_rasa
             return maConnexion.Secteur.ToList();
         }
         
-         }*/
+         
         public static List<Visiteur> listeLesVisiteurs()
         {
             return maConnexion.Visiteur.ToList();
