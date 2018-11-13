@@ -38,5 +38,11 @@ namespace Projet_gsb_rasa
            fsO = new lblSecteur();
            fsO.Show();
         }
+
+        private void saisieDesFraisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FSaisieFrais FSF = new FSaisieFrais();
+            FSF.ShowDialog();
+        }
     }
 }

@@ -30,11 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.visiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.paramettreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.budjetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historiqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.responsalbitésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saisieDesFraisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,10 +38,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.visiteurToolStripMenuItem,
-            this.paramettreToolStripMenuItem,
-            this.consultationToolStripMenuItem,
-            this.budjetToolStripMenuItem,
-            this.responsalbitésToolStripMenuItem});
+            this.saisieDesFraisToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -59,39 +52,12 @@
             this.visiteurToolStripMenuItem.Text = "listes des visiteurs";
             this.visiteurToolStripMenuItem.Click += new System.EventHandler(this.visiteurToolStripMenuItem_Click);
             // 
-            // paramettreToolStripMenuItem
+            // saisieDesFraisToolStripMenuItem
             // 
-            this.paramettreToolStripMenuItem.Name = "paramettreToolStripMenuItem";
-            this.paramettreToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.paramettreToolStripMenuItem.Text = "paramètre";
-            this.paramettreToolStripMenuItem.Click += new System.EventHandler(this.paramettreToolStripMenuItem_Click);
-            // 
-            // consultationToolStripMenuItem
-            // 
-            this.consultationToolStripMenuItem.Name = "consultationToolStripMenuItem";
-            this.consultationToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
-            this.consultationToolStripMenuItem.Text = "consultation";
-            // 
-            // budjetToolStripMenuItem
-            // 
-            this.budjetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.historiqueToolStripMenuItem});
-            this.budjetToolStripMenuItem.Name = "budjetToolStripMenuItem";
-            this.budjetToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.budjetToolStripMenuItem.Text = "budget";
-            // 
-            // historiqueToolStripMenuItem
-            // 
-            this.historiqueToolStripMenuItem.Name = "historiqueToolStripMenuItem";
-            this.historiqueToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.historiqueToolStripMenuItem.Text = "historique";
-            // 
-            // responsalbitésToolStripMenuItem
-            // 
-            this.responsalbitésToolStripMenuItem.Name = "responsalbitésToolStripMenuItem";
-            this.responsalbitésToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
-            this.responsalbitésToolStripMenuItem.Text = "responsabilités";
-            this.responsalbitésToolStripMenuItem.Click += new System.EventHandler(this.responsalbitésToolStripMenuItem_Click);
+            this.saisieDesFraisToolStripMenuItem.Name = "saisieDesFraisToolStripMenuItem";
+            this.saisieDesFraisToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.saisieDesFraisToolStripMenuItem.Text = "Saisie des frais";
+            this.saisieDesFraisToolStripMenuItem.Click += new System.EventHandler(this.saisieDesFraisToolStripMenuItem_Click);
             // 
             // FMenu
             // 
@@ -113,10 +79,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem visiteurToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem paramettreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem budjetToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem historiqueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem responsalbitésToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saisieDesFraisToolStripMenuItem;
     }
 }
