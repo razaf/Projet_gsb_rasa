@@ -46,9 +46,9 @@
             // dgvVisiteur
             // 
             this.dgvVisiteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVisiteur.Location = new System.Drawing.Point(93, 62);
+            this.dgvVisiteur.Location = new System.Drawing.Point(93, 48);
             this.dgvVisiteur.Name = "dgvVisiteur";
-            this.dgvVisiteur.Size = new System.Drawing.Size(147, 75);
+            this.dgvVisiteur.Size = new System.Drawing.Size(547, 105);
             this.dgvVisiteur.TabIndex = 0;
             this.dgvVisiteur.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVisiteur_CellContentClick);
             // 
@@ -82,10 +82,11 @@
             // dgvResponsable
             // 
             this.dgvResponsable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResponsable.Location = new System.Drawing.Point(50, 159);
+            this.dgvResponsable.Location = new System.Drawing.Point(93, 173);
             this.dgvResponsable.Name = "dgvResponsable";
-            this.dgvResponsable.Size = new System.Drawing.Size(581, 54);
+            this.dgvResponsable.Size = new System.Drawing.Size(547, 100);
             this.dgvResponsable.TabIndex = 3;
+            this.dgvResponsable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResponsable_CellContentClick);
             // 
             // bsResponsable
             // 

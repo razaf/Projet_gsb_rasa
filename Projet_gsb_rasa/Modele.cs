@@ -67,7 +67,7 @@ namespace Projet_gsb_rasa
             var LQuery = maConnexion.Region.ToList()
 
                            .Where(x => x.idSecteur == idSecteur )
-                           .Select(x => new { x.libRegion })
+                           .Select(x => new { x.libRegion, x.Visiteur.nom, x.Visiteur.rue, x.Visiteur.cp, x.Visiteur.ville })
                         
                           // .Select(x => new { x.Visiteur.nom, x.Visiteur.prenom, x.Visiteur.rue, x.Visiteur.cp, x.Visiteur.ville, x.Visiteur.dateEmbauche, x.Visiteur.identifiant, x.Visiteur.password })
                            .OrderBy(x => x.libRegion);

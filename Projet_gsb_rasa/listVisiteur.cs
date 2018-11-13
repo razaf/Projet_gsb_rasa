@@ -18,10 +18,11 @@ namespace Projet_gsb_rasa
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        {/*
+            if (fermeture) return;
+            bsVisiteur.DataSource = ((Secteur)bsSource.Current).Region.ToList().OrderBy(x => x.libRegion).ThenBy(x =>  x.Visiteur.nom, x.Visiteur.rue, x.Visiteur.cp, x.Visiteur.ville);
+        */}
+        
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -32,6 +33,11 @@ namespace Projet_gsb_rasa
             bsVisiteur.DataSource = Modele.RegionParSecteur(int.Parse(cboSecteur.SelectedValue.ToString()));
             dgvVisiteur.DataSource = bsVisiteur;
             dgvVisiteur.Columns[0].HeaderText = "REGION";
+            dgvVisiteur.Columns[1].HeaderText = "NOM";
+            dgvVisiteur.Columns[2].HeaderText = "RUE";
+            dgvVisiteur.Columns[3].HeaderText = "CODE POSTAL";
+            dgvVisiteur.Columns[4].HeaderText = "VILLE";
+
         }
         private void chargedgv()
         {
@@ -61,22 +67,29 @@ namespace Projet_gsb_rasa
 
         private void bindingSource1_CurrentChanged_1(object sender, EventArgs e)
         {
-            {/*
+            {
                bsSource.DataSource = ((Region)bsSource.Current).libRegion.ToList();
                 dgvResponsable.DataSource = bsResponsable;
                 for (int i = 0; i < dgvResponsable.ColumnCount; i++)
                 {
                     dgvResponsable.Columns[i].Visible = false;
                 }
-                dgvResponsable.Columns["titreOeuvre"].Visible = true;
-                dgvResponsable.Columns["anComposition"].Visible = true;
-                dgvResponsable.Columns["titreOeuvre"].HeaderText = "Oeuvre";
+                //x.Visiteur.nom, x.Visiteur.prenom, x.Visiteur.rue, x.Visiteur.cp, x.Visiteur.ville
+                dgvResponsable.Columns["nom"].Visible = true;
+                dgvResponsable.Columns["prenom"].Visible = true;
+                dgvResponsable.Columns["rue"].Visible = true;
+                dgvResponsable.Columns["titreOeuvre"].HeaderText = "NOM";
                 dgvResponsable.Columns["titreOeuvre"].DisplayIndex = 0;
-                dgvResponsable.Columns["anComposition"].HeaderText = "Composition";
-                dgvOeuvre.Columns["anComposition"].DisplayIndex = 1;
-                */
+                dgvResponsable.Columns["anComposition"].HeaderText = "Prenom";
+                dgvResponsable.Columns["anComposition"].DisplayIndex = 1;
+                
                
             }
+        }
+
+        private void dgvResponsable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
