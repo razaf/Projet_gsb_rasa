@@ -82,8 +82,17 @@ namespace Projet_gsb_rasa
         {
             return maConnexion.Secteur.ToList();
         }
-        
-         
+
+        public static List<Region> ListRegion()
+        {
+            return maConnexion.Region.ToList();
+        }
+
+       /* public static List<>Travailler> ListRegion()
+        {
+            return maConnexion.Travailler.ToList();
+        }
+        */
         public static List<Visiteur> listeLesVisiteurs()
         {
             return maConnexion.Visiteur.ToList();

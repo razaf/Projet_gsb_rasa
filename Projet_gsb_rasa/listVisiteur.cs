@@ -12,16 +12,39 @@ namespace Projet_gsb_rasa
 {
     public partial class lblSecteur : Form
     {
+        private bool fermeture = false;
         public lblSecteur()
         {
             InitializeComponent();
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
-        {/*
-            if (fermeture) return;
-            bsVisiteur.DataSource = ((Secteur)bsSource.Current).Region.ToList().OrderBy(x => x.libRegion).ThenBy(x =>  x.Visiteur.nom, x.Visiteur.rue, x.Visiteur.cp, x.Visiteur.ville);
-        */}
+        {
+            /*if (fermeture) return;
+            bsVisiteur.DataSource = ((Secteur)bsSource.Current).Region.ToList().OrderBy(x => x.libRegion).ThenBy(x => x.Visiteur.nom);
+            dgvVisiteur.DataSource = bsVisiteur;
+            for (int i = 0; i < dgvVisiteur.ColumnCount; i++)
+            {
+                dgvVisiteur.Columns[i].Visible = false;
+            }
+            dgvVisiteur.Columns["libRegion"].Visible = true;
+            dgvVisiteur.Columns["nom"].Visible = true;
+            dgvVisiteur.Columns["rue"].Visible = true;
+            dgvVisiteur.Columns["cp"].Visible = true;
+            dgvVisiteur.Columns["ville"].Visible = true;
+            dgvVisiteur.Columns["libRegion"].HeaderText = "REGION";
+            dgvVisiteur.Columns["libRegion"].DisplayIndex = 0;
+
+            dgvVisiteur.Columns["nom"].HeaderText = "NOM";
+            dgvVisiteur.Columns["nom"].DisplayIndex = 1;
+            dgvVisiteur.Columns["rue"].HeaderText = "RUE";
+            dgvVisiteur.Columns["rue"].DisplayIndex = 2;
+            dgvVisiteur.Columns["cp"].HeaderText = "CODE POSTAL";
+            dgvVisiteur.Columns["cp"].DisplayIndex = 3;
+            dgvVisiteur.Columns["ville"].HeaderText = "VILLE";
+            dgvVisiteur.Columns["ville"].DisplayIndex = 4;
+            */
+        }
         
         private void label1_Click(object sender, EventArgs e)
         {
@@ -90,6 +113,11 @@ namespace Projet_gsb_rasa
         private void dgvResponsable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void bs_Visiteur_CurrentChanged(object sender, EventArgs e)
+        {
+          // bsVisiteur.DataSource=(())
         }
     }
 }
