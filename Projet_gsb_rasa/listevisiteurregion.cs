@@ -32,7 +32,7 @@ namespace Projet_gsb_rasa
         {
             cboregion.ValueMember = "idRegion";//permet de stocker l'identifiant
             cboregion.DisplayMember = "libRegion";
-            bsSource.DataSource = Modele.ListRegion();
+            bsSource.DataSource = Modele.ListeRegion();
             cboregion.DataSource = bsSource;
         }
 

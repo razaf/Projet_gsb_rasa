@@ -33,18 +33,13 @@
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK__LigneFraisHorsFo__74AE54BC" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK__FraisForf__idReg__5CD6CB2B" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK__LigneFrai__idFra__7B5B524B" />
-        <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK_Laboratoire" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.medecin_fk" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.rapport_fk2" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.offrir_fk2" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.rapport_fk3" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.offrir_fk1" />
         <AssociationConnector Association="GSB_Anjaka_SamuelModel.rapport_fk1" />
-        <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK_SECTEUR" />
-        <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK_VISITEUR" />
-        <AssociationConnector Association="GSB_Anjaka_SamuelModel.FK_VISITEURSECTEUR" />
-        <AssociationConnector Association="GSB_Anjaka_SamuelModel.Travailler" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
