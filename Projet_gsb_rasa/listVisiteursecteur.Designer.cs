@@ -34,23 +34,22 @@
             this.cboSecteur = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvResponsable = new System.Windows.Forms.DataGridView();
             this.bsResponsable = new System.Windows.Forms.BindingSource(this.components);
             this.txt_nom_respon = new System.Windows.Forms.TextBox();
             this.txt_cp_res = new System.Windows.Forms.TextBox();
             this.txt_rue_resp = new System.Windows.Forms.TextBox();
             this.txt_ville_resp = new System.Windows.Forms.TextBox();
+            this.txt_prenom_respon = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisiteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResponsable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsResponsable)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvVisiteur
             // 
             this.dgvVisiteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVisiteur.Location = new System.Drawing.Point(93, 112);
+            this.dgvVisiteur.Location = new System.Drawing.Point(78, 143);
             this.dgvVisiteur.Name = "dgvVisiteur";
             this.dgvVisiteur.Size = new System.Drawing.Size(547, 105);
             this.dgvVisiteur.TabIndex = 0;
@@ -83,57 +82,55 @@
             // 
             this.bsVisiteur.CurrentChanged += new System.EventHandler(this.bs_Visiteur_CurrentChanged);
             // 
-            // dgvResponsable
-            // 
-            this.dgvResponsable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResponsable.Location = new System.Drawing.Point(78, 263);
-            this.dgvResponsable.Name = "dgvResponsable";
-            this.dgvResponsable.Size = new System.Drawing.Size(547, 100);
-            this.dgvResponsable.TabIndex = 3;
-            this.dgvResponsable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResponsable_CellContentClick);
-            // 
             // bsResponsable
             // 
             this.bsResponsable.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged_1);
             // 
             // txt_nom_respon
             // 
-            this.txt_nom_respon.Location = new System.Drawing.Point(184, 74);
+            this.txt_nom_respon.Location = new System.Drawing.Point(142, 74);
             this.txt_nom_respon.Name = "txt_nom_respon";
             this.txt_nom_respon.Size = new System.Drawing.Size(86, 20);
             this.txt_nom_respon.TabIndex = 4;
             // 
             // txt_cp_res
             // 
-            this.txt_cp_res.Location = new System.Drawing.Point(368, 74);
+            this.txt_cp_res.Location = new System.Drawing.Point(418, 74);
             this.txt_cp_res.Name = "txt_cp_res";
             this.txt_cp_res.Size = new System.Drawing.Size(86, 20);
             this.txt_cp_res.TabIndex = 5;
             // 
             // txt_rue_resp
             // 
-            this.txt_rue_resp.Location = new System.Drawing.Point(276, 74);
+            this.txt_rue_resp.Location = new System.Drawing.Point(326, 74);
             this.txt_rue_resp.Name = "txt_rue_resp";
             this.txt_rue_resp.Size = new System.Drawing.Size(86, 20);
             this.txt_rue_resp.TabIndex = 6;
             // 
             // txt_ville_resp
             // 
-            this.txt_ville_resp.Location = new System.Drawing.Point(460, 74);
+            this.txt_ville_resp.Location = new System.Drawing.Point(510, 74);
             this.txt_ville_resp.Name = "txt_ville_resp";
             this.txt_ville_resp.Size = new System.Drawing.Size(86, 20);
             this.txt_ville_resp.TabIndex = 7;
+            // 
+            // txt_prenom_respon
+            // 
+            this.txt_prenom_respon.Location = new System.Drawing.Point(234, 74);
+            this.txt_prenom_respon.Name = "txt_prenom_respon";
+            this.txt_prenom_respon.Size = new System.Drawing.Size(86, 20);
+            this.txt_prenom_respon.TabIndex = 8;
             // 
             // lblSecteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 375);
+            this.ClientSize = new System.Drawing.Size(680, 308);
+            this.Controls.Add(this.txt_prenom_respon);
             this.Controls.Add(this.txt_ville_resp);
             this.Controls.Add(this.txt_rue_resp);
             this.Controls.Add(this.txt_cp_res);
             this.Controls.Add(this.txt_nom_respon);
-            this.Controls.Add(this.dgvResponsable);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboSecteur);
             this.Controls.Add(this.dgvVisiteur);
@@ -143,7 +140,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisiteur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResponsable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsResponsable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -157,11 +153,11 @@
         private System.Windows.Forms.ComboBox cboSecteur;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource bsVisiteur;
-        private System.Windows.Forms.DataGridView dgvResponsable;
         private System.Windows.Forms.BindingSource bsResponsable;
         private System.Windows.Forms.TextBox txt_nom_respon;
         private System.Windows.Forms.TextBox txt_cp_res;
         private System.Windows.Forms.TextBox txt_rue_resp;
         private System.Windows.Forms.TextBox txt_ville_resp;
+        private System.Windows.Forms.TextBox txt_prenom_respon;
     }
 }

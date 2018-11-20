@@ -34,15 +34,27 @@ namespace Projet_gsb_rasa
 
         private void visiteurToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             lblSecteur fsO;
-           fsO = new lblSecteur();
-           fsO.Show();
+             
         }
 
         private void saisieDesFraisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FSaisieFrais FSF = new FSaisieFrais();
             FSF.ShowDialog();
+        }
+
+        private void listeVisiteurParSecteurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblSecteur fsO;
+            fsO = new lblSecteur();
+            fsO.Show();
+        }
+
+        private void listeVisiteurParRegionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listevisiteurregion fs1;
+            fs1 = new listevisiteurregion();
+            fs1.Show();
         }
     }
 }

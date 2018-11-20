@@ -31,6 +31,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.visiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saisieDesFraisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.listeVisiteurParSecteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listeVisiteurParRegionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +50,9 @@
             // 
             // visiteurToolStripMenuItem
             // 
+            this.visiteurToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listeVisiteurParSecteurToolStripMenuItem,
+            this.listeVisiteurParRegionToolStripMenuItem});
             this.visiteurToolStripMenuItem.Name = "visiteurToolStripMenuItem";
             this.visiteurToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
             this.visiteurToolStripMenuItem.Text = "listes des visiteurs";
@@ -58,6 +64,20 @@
             this.saisieDesFraisToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.saisieDesFraisToolStripMenuItem.Text = "Saisie des frais";
             this.saisieDesFraisToolStripMenuItem.Click += new System.EventHandler(this.saisieDesFraisToolStripMenuItem_Click);
+            // 
+            // listeVisiteurParSecteurToolStripMenuItem
+            // 
+            this.listeVisiteurParSecteurToolStripMenuItem.Name = "listeVisiteurParSecteurToolStripMenuItem";
+            this.listeVisiteurParSecteurToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.listeVisiteurParSecteurToolStripMenuItem.Text = "liste visiteur par secteur";
+            this.listeVisiteurParSecteurToolStripMenuItem.Click += new System.EventHandler(this.listeVisiteurParSecteurToolStripMenuItem_Click);
+            // 
+            // listeVisiteurParRegionToolStripMenuItem
+            // 
+            this.listeVisiteurParRegionToolStripMenuItem.Name = "listeVisiteurParRegionToolStripMenuItem";
+            this.listeVisiteurParRegionToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.listeVisiteurParRegionToolStripMenuItem.Text = "liste visiteur par region";
+            this.listeVisiteurParRegionToolStripMenuItem.Click += new System.EventHandler(this.listeVisiteurParRegionToolStripMenuItem_Click);
             // 
             // FMenu
             // 
@@ -80,5 +100,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem visiteurToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saisieDesFraisToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ToolStripMenuItem listeVisiteurParSecteurToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listeVisiteurParRegionToolStripMenuItem;
     }
 }

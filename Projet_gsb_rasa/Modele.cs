@@ -64,13 +64,14 @@ namespace Projet_gsb_rasa
 
        public static Object RegionParSecteur(int idSecteur)
         {
-            var LQuery = maConnexion.Region.ToList()
+            var LQuery = maConnexion.Secteur.ToList()
+                      // .Join maConnexion.
 
-                           .Where(x => x.idSecteur == idSecteur )
-                           .Select(x => new { x.libRegion, x.Visiteur.nom, x.Visiteur.rue, x.Visiteur.cp, x.Visiteur.ville })
+                           .Where(x => x.idSecteur  == idSecteur )
+                           .Select(x => new { x.idVisiteur, x.Visiteur.nom, x.Visiteur.rue, x.Visiteur.cp, x.Visiteur.ville })
                         
                           // .Select(x => new { x.Visiteur.nom, x.Visiteur.prenom, x.Visiteur.rue, x.Visiteur.cp, x.Visiteur.ville, x.Visiteur.dateEmbauche, x.Visiteur.identifiant, x.Visiteur.password })
-                           .OrderBy(x => x.libRegion);
+                           .OrderBy(x => x.idVisiteur);
             return LQuery.ToList();
 
         }
@@ -87,12 +88,16 @@ namespace Projet_gsb_rasa
         {
             return maConnexion.Region.ToList();
         }
-
-       /* public static List<>Travailler> ListRegion()
+        public static List<Visiteur> Listvisiteur()
         {
-            return maConnexion.Travailler.ToList();
+            return maConnexion.Visiteur.ToList();
         }
-        */
+
+        /* public static List<>Travailler> ListRegion()
+         {
+             return maConnexion.Travailler.ToList();
+         }
+         */
         public static List<Visiteur> listeLesVisiteurs()
         {
             return maConnexion.Visiteur.ToList();
