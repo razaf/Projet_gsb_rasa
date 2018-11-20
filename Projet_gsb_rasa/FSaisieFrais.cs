@@ -21,8 +21,26 @@ namespace Projet_gsb_rasa
             lblNumVisiteur.Text =numVisiteur;
             lblNomVisiteur.Text = nomVisiteur;
             lblPrenomVisiteur.Text = prenomVisiteur;
-        }
 
+            
+
+            
+
+        }
+        private void FSaisieFrais_Load(object sender, EventArgs e)
+        {
+            cbxRegion.ValueMember = "idRegion";//permet de stocker l'identifiant
+            cbxRegion.DisplayMember = "libRegion";
+
+            bscbxRegion.DataSource = Modele.ListeRegion();
+            cbxRegion.DataSource = bscbxRegion;
+
+            cbxLib.ValueMember = "id";//permet de stocker l'identifiant
+            cbxLib.DisplayMember = "libelle";
+
+            bscbxLib.DataSource = Modele.getLibFraisForfait();
+            cbxLib.DataSource = bscbxLib;
+        }
         private void btnAjoutFF_Click(object sender, EventArgs e)
         {
 
@@ -39,6 +57,16 @@ namespace Projet_gsb_rasa
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblNomVisiteur_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bscbxLib_CurrentChanged(object sender, EventArgs e)
         {
 
         }

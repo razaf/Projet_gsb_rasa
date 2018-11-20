@@ -16,6 +16,7 @@ namespace Projet_gsb_rasa
     {
         public string idVisiteur { get; set; }
         public string mois { get; set; }
+        public int annee { get; set; }
         public string idFraisForfait { get; set; }
         public Nullable<int> quantite { get; set; }
     

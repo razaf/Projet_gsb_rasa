@@ -23,9 +23,11 @@
           <Key>
             <PropertyRef Name="idVisiteur" />
             <PropertyRef Name="mois" />
+            <PropertyRef Name="annee" />
           </Key>
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="mois" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="annee" Type="int" Nullable="false" />
           <Property Name="nbJustificatifs" Type="int" />
           <Property Name="montantValide" Type="decimal" Precision="10" Scale="2" />
           <Property Name="dateModif" Type="date" />
@@ -36,9 +38,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="char" MaxLength="3" Nullable="false" />
-          <Property Name="libelle" Type="char" MaxLength="20" />
+          <Property Name="libelle" Type="char" MaxLength="40" />
           <Property Name="montant" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="idRegion" Type="int" Nullable="false" />
+          <Property Name="idRegion" Type="int" />
+          <Property Name="typeFrais" Type="char" MaxLength="8" />
         </EntityType>
         <EntityType Name="Laboratoire">
           <Key>
@@ -51,10 +54,12 @@
           <Key>
             <PropertyRef Name="idVisiteur" />
             <PropertyRef Name="mois" />
+            <PropertyRef Name="annee" />
             <PropertyRef Name="idFraisForfait" />
           </Key>
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="mois" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="annee" Type="int" Nullable="false" />
           <Property Name="idFraisForfait" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="quantite" Type="int" />
         </EntityType>
@@ -65,6 +70,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="mois" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="annee" Type="int" Nullable="false" />
           <Property Name="libelle" Type="varchar" MaxLength="100" />
           <Property Name="date" Type="date" />
           <Property Name="montant" Type="decimal" Precision="10" Scale="2" />
@@ -127,6 +133,7 @@
           <Property Name="libRegion" Type="varchar" MaxLength="64" />
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="idSecteur" Type="int" Nullable="false" />
+          <Property Name="Coef" Type="float" />
         </EntityType>
         <EntityType Name="Secteur">
           <Key>
@@ -166,7 +173,7 @@
           <Property Name="identifiant" Type="varchar" MaxLength="16" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
-        <Association Name="FK__fichefrai__idEta__1ED998B2">
+        <Association Name="FK__fichefrai__idEta__656C112C">
           <End Role="Etat" Type="Self.Etat" Multiplicity="0..1" />
           <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="*" />
           <ReferentialConstraint>
@@ -178,7 +185,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__fichefrai__idVis__1FCDBCEB">
+        <Association Name="FK__fichefrai__idVis__66603565">
           <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="1" />
           <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="*" />
           <ReferentialConstraint>
@@ -191,7 +198,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__FraisForf__idReg__5CD6CB2B">
-          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
           <End Role="FraisForfait" Type="Self.FraisForfait" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Region">
@@ -202,7 +209,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFrai__idFra__267ABA7A">
+        <Association Name="FK__LigneFrai__idFra__7B5B524B">
           <End Role="FraisForfait" Type="Self.FraisForfait" Multiplicity="1" />
           <End Role="LigneFraisForfait" Type="Self.LigneFraisForfait" Multiplicity="*" />
           <ReferentialConstraint>
@@ -214,31 +221,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFraisForfai__25869641">
+        <Association Name="FK__LigneFraisForfai__7A672E12">
           <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="1" />
           <End Role="LigneFraisForfait" Type="Self.LigneFraisForfait" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="fichefrais">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Principal>
             <Dependent Role="LigneFraisForfait">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFraisHorsFo__2E1BDC42">
+        <Association Name="FK__LigneFraisHorsFo__74AE54BC">
           <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="1" />
           <End Role="LigneFraisHorsForfait" Type="Self.LigneFraisHorsForfait" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="fichefrais">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Principal>
             <Dependent Role="LigneFraisHorsForfait">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -416,11 +427,11 @@
           <EntitySet Name="SPECIALITE" EntityType="Self.SPECIALITE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Travailler" EntityType="Self.Travailler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Visiteur" EntityType="Self.Visiteur" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__fichefrai__idEta__1ED998B2" Association="Self.FK__fichefrai__idEta__1ED998B2">
+          <AssociationSet Name="FK__fichefrai__idEta__656C112C" Association="Self.FK__fichefrai__idEta__656C112C">
             <End Role="Etat" EntitySet="Etat" />
             <End Role="fichefrais" EntitySet="fichefrais" />
           </AssociationSet>
-          <AssociationSet Name="FK__fichefrai__idVis__1FCDBCEB" Association="Self.FK__fichefrai__idVis__1FCDBCEB">
+          <AssociationSet Name="FK__fichefrai__idVis__66603565" Association="Self.FK__fichefrai__idVis__66603565">
             <End Role="Visiteur" EntitySet="Visiteur" />
             <End Role="fichefrais" EntitySet="fichefrais" />
           </AssociationSet>
@@ -428,15 +439,15 @@
             <End Role="Region" EntitySet="Region" />
             <End Role="FraisForfait" EntitySet="FraisForfait" />
           </AssociationSet>
-          <AssociationSet Name="FK__LigneFrai__idFra__267ABA7A" Association="Self.FK__LigneFrai__idFra__267ABA7A">
+          <AssociationSet Name="FK__LigneFrai__idFra__7B5B524B" Association="Self.FK__LigneFrai__idFra__7B5B524B">
             <End Role="FraisForfait" EntitySet="FraisForfait" />
             <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
           </AssociationSet>
-          <AssociationSet Name="FK__LigneFraisForfai__25869641" Association="Self.FK__LigneFraisForfai__25869641">
+          <AssociationSet Name="FK__LigneFraisForfai__7A672E12" Association="Self.FK__LigneFraisForfai__7A672E12">
             <End Role="fichefrais" EntitySet="fichefrais" />
             <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
           </AssociationSet>
-          <AssociationSet Name="FK__LigneFraisHorsFo__2E1BDC42" Association="Self.FK__LigneFraisHorsFo__2E1BDC42">
+          <AssociationSet Name="FK__LigneFraisHorsFo__74AE54BC" Association="Self.FK__LigneFraisHorsFo__74AE54BC">
             <End Role="fichefrais" EntitySet="fichefrais" />
             <End Role="LigneFraisHorsForfait" EntitySet="LigneFraisHorsForfait" />
           </AssociationSet>
@@ -497,139 +508,12 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GSB_Anjaka_SamuelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Laboratoire">
-          <Key>
-            <PropertyRef Name="idLabo" />
-          </Key>
-          <Property Name="idLabo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nomLabo" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Visiteur" Relationship="Self.FK_Laboratoire" FromRole="Laboratoire" ToRole="Visiteur" />
-        </EntityType>
-        <EntityType Name="Region">
-          <Key>
-            <PropertyRef Name="idRegion" />
-          </Key>
-          <Property Name="idRegion" Type="Int32" Nullable="false" />
-          <Property Name="libRegion" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="idVisiteur" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="idSecteur" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Secteur" Relationship="Self.FK_SECTEUR" FromRole="Region" ToRole="Secteur" />
-          <NavigationProperty Name="Visiteur" Relationship="Self.FK_VISITEUR" FromRole="Region" ToRole="Visiteur" />
-          <NavigationProperty Name="Visiteur1" Relationship="Self.Travailler" FromRole="Region" ToRole="Visiteur" />
-          <NavigationProperty Name="FraisForfait" Relationship="GSB_Anjaka_SamuelModel.FK__FraisForf__idReg__5CD6CB2B" FromRole="Region" ToRole="FraisForfait" />
-        </EntityType>
-        <EntityType Name="Secteur">
-          <Key>
-            <PropertyRef Name="idSecteur" />
-          </Key>
-          <Property Name="idSecteur" Type="Int32" Nullable="false" />
-          <Property Name="libSecteur" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="idVisiteur" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Region" Relationship="Self.FK_SECTEUR" FromRole="Secteur" ToRole="Region" />
-          <NavigationProperty Name="Visiteur" Relationship="Self.FK_VISITEURSECTEUR" FromRole="Secteur" ToRole="Visiteur" />
-        </EntityType>
-        <EntityType Name="Visiteur">
-          <Key>
-            <PropertyRef Name="idVisiteur" />
-          </Key>
-          <Property Name="idVisiteur" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="idLabo" Type="Int32" Nullable="false" />
-          <Property Name="nom" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="prenom" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="rue" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="cp" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="ville" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="dateEmbauche" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="identifiant" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Laboratoire" Relationship="Self.FK_Laboratoire" FromRole="Visiteur" ToRole="Laboratoire" />
-          <NavigationProperty Name="Region" Relationship="Self.FK_VISITEUR" FromRole="Visiteur" ToRole="Region" />
-          <NavigationProperty Name="Secteur" Relationship="Self.FK_VISITEURSECTEUR" FromRole="Visiteur" ToRole="Secteur" />
-          <NavigationProperty Name="Region1" Relationship="Self.Travailler" FromRole="Visiteur" ToRole="Region" />
-          <NavigationProperty Name="fichefrais" Relationship="GSB_Anjaka_SamuelModel.FK__fichefrai__idVis__1FCDBCEB" FromRole="Visiteur" ToRole="fichefrais" />
-          <NavigationProperty Name="RAPPORT" Relationship="GSB_Anjaka_SamuelModel.rapport_fk1" FromRole="Visiteur" ToRole="RAPPORT" />
-        </EntityType>
-        <Association Name="FK_Laboratoire">
-          <End Role="Laboratoire" Type="Self.Laboratoire" Multiplicity="1" />
-          <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Laboratoire">
-              <PropertyRef Name="idLabo" />
-            </Principal>
-            <Dependent Role="Visiteur">
-              <PropertyRef Name="idLabo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SECTEUR">
-          <End Role="Secteur" Type="Self.Secteur" Multiplicity="1" />
-          <End Role="Region" Type="Self.Region" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Secteur">
-              <PropertyRef Name="idSecteur" />
-            </Principal>
-            <Dependent Role="Region">
-              <PropertyRef Name="idSecteur" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VISITEUR">
-          <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="1" />
-          <End Role="Region" Type="Self.Region" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Visiteur">
-              <PropertyRef Name="idVisiteur" />
-            </Principal>
-            <Dependent Role="Region">
-              <PropertyRef Name="idVisiteur" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VISITEURSECTEUR">
-          <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="1" />
-          <End Role="Secteur" Type="Self.Secteur" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Visiteur">
-              <PropertyRef Name="idVisiteur" />
-            </Principal>
-            <Dependent Role="Secteur">
-              <PropertyRef Name="idVisiteur" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Travailler">
-          <End Role="Region" Type="Self.Region" Multiplicity="*" />
-          <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="GSB_Anjaka_SamuelEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Laboratoire" EntityType="Self.Laboratoire" />
-          <EntitySet Name="Region" EntityType="Self.Region" />
-          <EntitySet Name="Secteur" EntityType="Self.Secteur" />
-          <EntitySet Name="Visiteur" EntityType="Self.Visiteur" />
-          <AssociationSet Name="FK_Laboratoire" Association="Self.FK_Laboratoire">
-            <End Role="Laboratoire" EntitySet="Laboratoire" />
-            <End Role="Visiteur" EntitySet="Visiteur" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SECTEUR" Association="Self.FK_SECTEUR">
-            <End Role="Secteur" EntitySet="Secteur" />
-            <End Role="Region" EntitySet="Region" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VISITEUR" Association="Self.FK_VISITEUR">
-            <End Role="Visiteur" EntitySet="Visiteur" />
-            <End Role="Region" EntitySet="Region" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VISITEURSECTEUR" Association="Self.FK_VISITEURSECTEUR">
-            <End Role="Visiteur" EntitySet="Visiteur" />
-            <End Role="Secteur" EntitySet="Secteur" />
-          </AssociationSet>
-          <AssociationSet Name="Travailler" Association="Self.Travailler">
-            <End Role="Region" EntitySet="Region" />
-            <End Role="Visiteur" EntitySet="Visiteur" />
-          </AssociationSet>
           <EntitySet Name="Etat" EntityType="GSB_Anjaka_SamuelModel.Etat" />
           <EntitySet Name="FAMILLE" EntityType="GSB_Anjaka_SamuelModel.FAMILLE" />
           <EntitySet Name="fichefrais" EntityType="GSB_Anjaka_SamuelModel.fichefrais" />
           <EntitySet Name="FraisForfait" EntityType="GSB_Anjaka_SamuelModel.FraisForfait" />
+          <EntitySet Name="Laboratoire" EntityType="GSB_Anjaka_SamuelModel.Laboratoire" />
           <EntitySet Name="LigneFraisForfait" EntityType="GSB_Anjaka_SamuelModel.LigneFraisForfait" />
           <EntitySet Name="LigneFraisHorsForfait" EntityType="GSB_Anjaka_SamuelModel.LigneFraisHorsForfait" />
           <EntitySet Name="MEDECIN" EntityType="GSB_Anjaka_SamuelModel.MEDECIN" />
@@ -637,8 +521,11 @@
           <EntitySet Name="MOTIF" EntityType="GSB_Anjaka_SamuelModel.MOTIF" />
           <EntitySet Name="OFFRIR" EntityType="GSB_Anjaka_SamuelModel.OFFRIR" />
           <EntitySet Name="RAPPORT" EntityType="GSB_Anjaka_SamuelModel.RAPPORT" />
+          <EntitySet Name="Region" EntityType="GSB_Anjaka_SamuelModel.Region" />
+          <EntitySet Name="Secteur" EntityType="GSB_Anjaka_SamuelModel.Secteur" />
           <EntitySet Name="SPECIALITE" EntityType="GSB_Anjaka_SamuelModel.SPECIALITE" />
-          <AssociationSet Name="FK__fichefrai__idEta__1ED998B2" Association="GSB_Anjaka_SamuelModel.FK__fichefrai__idEta__1ED998B2">
+          <EntitySet Name="Visiteur" EntityType="GSB_Anjaka_SamuelModel.Visiteur" />
+          <AssociationSet Name="FK__fichefrai__idEta__656C112C" Association="GSB_Anjaka_SamuelModel.FK__fichefrai__idEta__656C112C">
             <End Role="Etat" EntitySet="Etat" />
             <End Role="fichefrais" EntitySet="fichefrais" />
           </AssociationSet>
@@ -646,21 +533,29 @@
             <End Role="FAMILLE" EntitySet="FAMILLE" />
             <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
           </AssociationSet>
-          <AssociationSet Name="FK__fichefrai__idVis__1FCDBCEB" Association="GSB_Anjaka_SamuelModel.FK__fichefrai__idVis__1FCDBCEB">
+          <AssociationSet Name="FK__fichefrai__idVis__66603565" Association="GSB_Anjaka_SamuelModel.FK__fichefrai__idVis__66603565">
             <End Role="Visiteur" EntitySet="Visiteur" />
             <End Role="fichefrais" EntitySet="fichefrais" />
           </AssociationSet>
-          <AssociationSet Name="FK__LigneFraisForfai__25869641" Association="GSB_Anjaka_SamuelModel.FK__LigneFraisForfai__25869641">
+          <AssociationSet Name="FK__LigneFraisForfai__7A672E12" Association="GSB_Anjaka_SamuelModel.FK__LigneFraisForfai__7A672E12">
             <End Role="fichefrais" EntitySet="fichefrais" />
             <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
           </AssociationSet>
-          <AssociationSet Name="FK__LigneFraisHorsFo__2E1BDC42" Association="GSB_Anjaka_SamuelModel.FK__LigneFraisHorsFo__2E1BDC42">
+          <AssociationSet Name="FK__LigneFraisHorsFo__74AE54BC" Association="GSB_Anjaka_SamuelModel.FK__LigneFraisHorsFo__74AE54BC">
             <End Role="fichefrais" EntitySet="fichefrais" />
             <End Role="LigneFraisHorsForfait" EntitySet="LigneFraisHorsForfait" />
           </AssociationSet>
-          <AssociationSet Name="FK__LigneFrai__idFra__267ABA7A" Association="GSB_Anjaka_SamuelModel.FK__LigneFrai__idFra__267ABA7A">
+          <AssociationSet Name="FK__FraisForf__idReg__5CD6CB2B" Association="GSB_Anjaka_SamuelModel.FK__FraisForf__idReg__5CD6CB2B">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="FraisForfait" EntitySet="FraisForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LigneFrai__idFra__7B5B524B" Association="GSB_Anjaka_SamuelModel.FK__LigneFrai__idFra__7B5B524B">
             <End Role="FraisForfait" EntitySet="FraisForfait" />
             <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laboratoire" Association="GSB_Anjaka_SamuelModel.FK_Laboratoire">
+            <End Role="Laboratoire" EntitySet="Laboratoire" />
+            <End Role="Visiteur" EntitySet="Visiteur" />
           </AssociationSet>
           <AssociationSet Name="medecin_fk" Association="GSB_Anjaka_SamuelModel.medecin_fk">
             <End Role="SPECIALITE" EntitySet="SPECIALITE" />
@@ -686,9 +581,21 @@
             <End Role="Visiteur" EntitySet="Visiteur" />
             <End Role="RAPPORT" EntitySet="RAPPORT" />
           </AssociationSet>
-          <AssociationSet Name="FK__FraisForf__idReg__5CD6CB2B" Association="GSB_Anjaka_SamuelModel.FK__FraisForf__idReg__5CD6CB2B">
+          <AssociationSet Name="FK_SECTEUR" Association="GSB_Anjaka_SamuelModel.FK_SECTEUR">
+            <End Role="Secteur" EntitySet="Secteur" />
             <End Role="Region" EntitySet="Region" />
-            <End Role="FraisForfait" EntitySet="FraisForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VISITEUR" Association="GSB_Anjaka_SamuelModel.FK_VISITEUR">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="Region" EntitySet="Region" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VISITEURSECTEUR" Association="GSB_Anjaka_SamuelModel.FK_VISITEURSECTEUR">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="Secteur" EntitySet="Secteur" />
+          </AssociationSet>
+          <AssociationSet Name="Travailler" Association="GSB_Anjaka_SamuelModel.Travailler">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Visiteur" EntitySet="Visiteur" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Etat">
@@ -697,7 +604,7 @@
           </Key>
           <Property Name="id" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="libelle" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="fichefrais" Relationship="GSB_Anjaka_SamuelModel.FK__fichefrai__idEta__1ED998B2" FromRole="Etat" ToRole="fichefrais" />
+          <NavigationProperty Name="fichefrais" Relationship="GSB_Anjaka_SamuelModel.FK__fichefrai__idEta__656C112C" FromRole="Etat" ToRole="fichefrais" />
         </EntityType>
         <EntityType Name="FAMILLE">
           <Key>
@@ -711,41 +618,54 @@
           <Key>
             <PropertyRef Name="idVisiteur" />
             <PropertyRef Name="mois" />
+            <PropertyRef Name="annee" />
           </Key>
           <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="mois" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="annee" Type="Int32" Nullable="false" />
           <Property Name="nbJustificatifs" Type="Int32" />
           <Property Name="montantValide" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="dateModif" Type="DateTime" Precision="0" />
           <Property Name="idEtat" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Etat" Relationship="GSB_Anjaka_SamuelModel.FK__fichefrai__idEta__1ED998B2" FromRole="fichefrais" ToRole="Etat" />
-          <NavigationProperty Name="Visiteur" Relationship="GSB_Anjaka_SamuelModel.FK__fichefrai__idVis__1FCDBCEB" FromRole="fichefrais" ToRole="Visiteur" />
-          <NavigationProperty Name="LigneFraisForfait" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFraisForfai__25869641" FromRole="fichefrais" ToRole="LigneFraisForfait" />
-          <NavigationProperty Name="LigneFraisHorsForfait" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFraisHorsFo__2E1BDC42" FromRole="fichefrais" ToRole="LigneFraisHorsForfait" />
+          <NavigationProperty Name="Etat" Relationship="GSB_Anjaka_SamuelModel.FK__fichefrai__idEta__656C112C" FromRole="fichefrais" ToRole="Etat" />
+          <NavigationProperty Name="Visiteur" Relationship="GSB_Anjaka_SamuelModel.FK__fichefrai__idVis__66603565" FromRole="fichefrais" ToRole="Visiteur" />
+          <NavigationProperty Name="LigneFraisForfait" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFraisForfai__7A672E12" FromRole="fichefrais" ToRole="LigneFraisForfait" />
+          <NavigationProperty Name="LigneFraisHorsForfait" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFraisHorsFo__74AE54BC" FromRole="fichefrais" ToRole="LigneFraisHorsForfait" />
         </EntityType>
         <EntityType Name="FraisForfait">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
-          <Property Name="libelle" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="libelle" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
           <Property Name="montant" Type="Decimal" Precision="5" Scale="2" />
-          <NavigationProperty Name="LigneFraisForfait" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFrai__idFra__267ABA7A" FromRole="FraisForfait" ToRole="LigneFraisForfait" />
-          <Property Name="idRegion" Type="Int32" Nullable="false" />
+          <Property Name="idRegion" Type="Int32" />
+          <Property Name="typeFrais" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Region" Relationship="GSB_Anjaka_SamuelModel.FK__FraisForf__idReg__5CD6CB2B" FromRole="FraisForfait" ToRole="Region" />
+          <NavigationProperty Name="LigneFraisForfait" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFrai__idFra__7B5B524B" FromRole="FraisForfait" ToRole="LigneFraisForfait" />
+        </EntityType>
+        <EntityType Name="Laboratoire">
+          <Key>
+            <PropertyRef Name="idLabo" />
+          </Key>
+          <Property Name="idLabo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomLabo" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Visiteur" Relationship="GSB_Anjaka_SamuelModel.FK_Laboratoire" FromRole="Laboratoire" ToRole="Visiteur" />
         </EntityType>
         <EntityType Name="LigneFraisForfait">
           <Key>
             <PropertyRef Name="idVisiteur" />
             <PropertyRef Name="mois" />
+            <PropertyRef Name="annee" />
             <PropertyRef Name="idFraisForfait" />
           </Key>
           <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="mois" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="annee" Type="Int32" Nullable="false" />
           <Property Name="idFraisForfait" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="quantite" Type="Int32" />
-          <NavigationProperty Name="fichefrais" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFraisForfai__25869641" FromRole="LigneFraisForfait" ToRole="fichefrais" />
-          <NavigationProperty Name="FraisForfait" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFrai__idFra__267ABA7A" FromRole="LigneFraisForfait" ToRole="FraisForfait" />
+          <NavigationProperty Name="fichefrais" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFraisForfai__7A672E12" FromRole="LigneFraisForfait" ToRole="fichefrais" />
+          <NavigationProperty Name="FraisForfait" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFrai__idFra__7B5B524B" FromRole="LigneFraisForfait" ToRole="FraisForfait" />
         </EntityType>
         <EntityType Name="LigneFraisHorsForfait">
           <Key>
@@ -754,10 +674,11 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="mois" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="annee" Type="Int32" Nullable="false" />
           <Property Name="libelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="date" Type="DateTime" Precision="0" />
           <Property Name="montant" Type="Decimal" Precision="10" Scale="2" />
-          <NavigationProperty Name="fichefrais" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFraisHorsFo__2E1BDC42" FromRole="LigneFraisHorsForfait" ToRole="fichefrais" />
+          <NavigationProperty Name="fichefrais" Relationship="GSB_Anjaka_SamuelModel.FK__LigneFraisHorsFo__74AE54BC" FromRole="LigneFraisHorsForfait" ToRole="fichefrais" />
         </EntityType>
         <EntityType Name="MEDECIN">
           <Key>
@@ -820,6 +741,30 @@
           <NavigationProperty Name="OFFRIR" Relationship="GSB_Anjaka_SamuelModel.offrir_fk1" FromRole="RAPPORT" ToRole="OFFRIR" />
           <NavigationProperty Name="Visiteur" Relationship="GSB_Anjaka_SamuelModel.rapport_fk1" FromRole="RAPPORT" ToRole="Visiteur" />
         </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="idRegion" />
+          </Key>
+          <Property Name="idRegion" Type="Int32" Nullable="false" />
+          <Property Name="libRegion" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="idSecteur" Type="Int32" Nullable="false" />
+          <Property Name="Coef" Type="Double" />
+          <NavigationProperty Name="FraisForfait" Relationship="GSB_Anjaka_SamuelModel.FK__FraisForf__idReg__5CD6CB2B" FromRole="Region" ToRole="FraisForfait" />
+          <NavigationProperty Name="Secteur" Relationship="GSB_Anjaka_SamuelModel.FK_SECTEUR" FromRole="Region" ToRole="Secteur" />
+          <NavigationProperty Name="Visiteur" Relationship="GSB_Anjaka_SamuelModel.FK_VISITEUR" FromRole="Region" ToRole="Visiteur" />
+          <NavigationProperty Name="Visiteur1" Relationship="GSB_Anjaka_SamuelModel.Travailler" FromRole="Region" ToRole="Visiteur" />
+        </EntityType>
+        <EntityType Name="Secteur">
+          <Key>
+            <PropertyRef Name="idSecteur" />
+          </Key>
+          <Property Name="idSecteur" Type="Int32" Nullable="false" />
+          <Property Name="libSecteur" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Region" Relationship="GSB_Anjaka_SamuelModel.FK_SECTEUR" FromRole="Secteur" ToRole="Region" />
+          <NavigationProperty Name="Visiteur" Relationship="GSB_Anjaka_SamuelModel.FK_VISITEURSECTEUR" FromRole="Secteur" ToRole="Visiteur" />
+        </EntityType>
         <EntityType Name="SPECIALITE">
           <Key>
             <PropertyRef Name="idSpecialite" />
@@ -828,7 +773,28 @@
           <Property Name="libSpecialite" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="MEDECIN" Relationship="GSB_Anjaka_SamuelModel.medecin_fk" FromRole="SPECIALITE" ToRole="MEDECIN" />
         </EntityType>
-        <Association Name="FK__fichefrai__idEta__1ED998B2">
+        <EntityType Name="Visiteur">
+          <Key>
+            <PropertyRef Name="idVisiteur" />
+          </Key>
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="idLabo" Type="Int32" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="prenom" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="rue" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="cp" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="ville" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="dateEmbauche" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="identifiant" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="fichefrais" Relationship="GSB_Anjaka_SamuelModel.FK__fichefrai__idVis__66603565" FromRole="Visiteur" ToRole="fichefrais" />
+          <NavigationProperty Name="Laboratoire" Relationship="GSB_Anjaka_SamuelModel.FK_Laboratoire" FromRole="Visiteur" ToRole="Laboratoire" />
+          <NavigationProperty Name="RAPPORT" Relationship="GSB_Anjaka_SamuelModel.rapport_fk1" FromRole="Visiteur" ToRole="RAPPORT" />
+          <NavigationProperty Name="Region" Relationship="GSB_Anjaka_SamuelModel.FK_VISITEUR" FromRole="Visiteur" ToRole="Region" />
+          <NavigationProperty Name="Secteur" Relationship="GSB_Anjaka_SamuelModel.FK_VISITEURSECTEUR" FromRole="Visiteur" ToRole="Secteur" />
+          <NavigationProperty Name="Region1" Relationship="GSB_Anjaka_SamuelModel.Travailler" FromRole="Visiteur" ToRole="Region" />
+        </EntityType>
+        <Association Name="FK__fichefrai__idEta__656C112C">
           <End Type="GSB_Anjaka_SamuelModel.Etat" Role="Etat" Multiplicity="0..1" />
           <End Type="GSB_Anjaka_SamuelModel.fichefrais" Role="fichefrais" Multiplicity="*" />
           <ReferentialConstraint>
@@ -852,7 +818,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__fichefrai__idVis__1FCDBCEB">
+        <Association Name="FK__fichefrai__idVis__66603565">
           <End Type="GSB_Anjaka_SamuelModel.Visiteur" Role="Visiteur" Multiplicity="1" />
           <End Type="GSB_Anjaka_SamuelModel.fichefrais" Role="fichefrais" Multiplicity="*" />
           <ReferentialConstraint>
@@ -864,35 +830,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFraisForfai__25869641">
+        <Association Name="FK__LigneFraisForfai__7A672E12">
           <End Type="GSB_Anjaka_SamuelModel.fichefrais" Role="fichefrais" Multiplicity="1" />
           <End Type="GSB_Anjaka_SamuelModel.LigneFraisForfait" Role="LigneFraisForfait" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="fichefrais">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Principal>
             <Dependent Role="LigneFraisForfait">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFraisHorsFo__2E1BDC42">
+        <Association Name="FK__LigneFraisHorsFo__74AE54BC">
           <End Type="GSB_Anjaka_SamuelModel.fichefrais" Role="fichefrais" Multiplicity="1" />
           <End Type="GSB_Anjaka_SamuelModel.LigneFraisHorsForfait" Role="LigneFraisHorsForfait" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="fichefrais">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Principal>
             <Dependent Role="LigneFraisHorsForfait">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFrai__idFra__267ABA7A">
+        <Association Name="FK__FraisForf__idReg__5CD6CB2B">
+          <End Type="GSB_Anjaka_SamuelModel.Region" Role="Region" Multiplicity="0..1" />
+          <End Type="GSB_Anjaka_SamuelModel.FraisForfait" Role="FraisForfait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="idRegion" />
+            </Principal>
+            <Dependent Role="FraisForfait">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LigneFrai__idFra__7B5B524B">
           <End Type="GSB_Anjaka_SamuelModel.FraisForfait" Role="FraisForfait" Multiplicity="1" />
           <End Type="GSB_Anjaka_SamuelModel.LigneFraisForfait" Role="LigneFraisForfait" Multiplicity="*" />
           <ReferentialConstraint>
@@ -901,6 +883,18 @@
             </Principal>
             <Dependent Role="LigneFraisForfait">
               <PropertyRef Name="idFraisForfait" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Laboratoire">
+          <End Type="GSB_Anjaka_SamuelModel.Laboratoire" Role="Laboratoire" Multiplicity="1" />
+          <End Type="GSB_Anjaka_SamuelModel.Visiteur" Role="Visiteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laboratoire">
+              <PropertyRef Name="idLabo" />
+            </Principal>
+            <Dependent Role="Visiteur">
+              <PropertyRef Name="idLabo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -976,75 +970,52 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FraisForf__idReg__5CD6CB2B">
-          <End Type="GSB_Anjaka_SamuelModel.Region" Role="Region" Multiplicity="1" />
-          <End Type="GSB_Anjaka_SamuelModel.FraisForfait" Role="FraisForfait" Multiplicity="*" />
+        <Association Name="FK_SECTEUR">
+          <End Type="GSB_Anjaka_SamuelModel.Secteur" Role="Secteur" Multiplicity="1" />
+          <End Type="GSB_Anjaka_SamuelModel.Region" Role="Region" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Region">
-              <PropertyRef Name="idRegion" />
+            <Principal Role="Secteur">
+              <PropertyRef Name="idSecteur" />
             </Principal>
-            <Dependent Role="FraisForfait">
-              <PropertyRef Name="idRegion" />
+            <Dependent Role="Region">
+              <PropertyRef Name="idSecteur" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <Association Name="FK_VISITEUR">
+          <End Type="GSB_Anjaka_SamuelModel.Visiteur" Role="Visiteur" Multiplicity="1" />
+          <End Type="GSB_Anjaka_SamuelModel.Region" Role="Region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visiteur">
+              <PropertyRef Name="idVisiteur" />
+            </Principal>
+            <Dependent Role="Region">
+              <PropertyRef Name="idVisiteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VISITEURSECTEUR">
+          <End Type="GSB_Anjaka_SamuelModel.Visiteur" Role="Visiteur" Multiplicity="1" />
+          <End Type="GSB_Anjaka_SamuelModel.Secteur" Role="Secteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visiteur">
+              <PropertyRef Name="idVisiteur" />
+            </Principal>
+            <Dependent Role="Secteur">
+              <PropertyRef Name="idVisiteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Travailler">
+          <End Type="GSB_Anjaka_SamuelModel.Region" Role="Region" Multiplicity="*" />
+          <End Type="GSB_Anjaka_SamuelModel.Visiteur" Role="Visiteur" Multiplicity="*" />
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="GSB_Anjaka_SamuelModelStoreContainer" CdmEntityContainer="GSB_Anjaka_SamuelEntities">
-          <EntitySetMapping Name="Laboratoire">
-            <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.Laboratoire">
-              <MappingFragment StoreEntitySet="Laboratoire">
-                <ScalarProperty Name="idLabo" ColumnName="idLabo" />
-                <ScalarProperty Name="nomLabo" ColumnName="nomLabo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Region">
-            <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.Region">
-              <MappingFragment StoreEntitySet="Region">
-                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
-                <ScalarProperty Name="libRegion" ColumnName="libRegion" />
-                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
-                <ScalarProperty Name="idSecteur" ColumnName="idSecteur" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Secteur">
-            <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.Secteur">
-              <MappingFragment StoreEntitySet="Secteur">
-                <ScalarProperty Name="idSecteur" ColumnName="idSecteur" />
-                <ScalarProperty Name="libSecteur" ColumnName="libSecteur" />
-                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Visiteur">
-            <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.Visiteur">
-              <MappingFragment StoreEntitySet="Visiteur">
-                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
-                <ScalarProperty Name="idLabo" ColumnName="idLabo" />
-                <ScalarProperty Name="nom" ColumnName="nom" />
-                <ScalarProperty Name="prenom" ColumnName="prenom" />
-                <ScalarProperty Name="rue" ColumnName="rue" />
-                <ScalarProperty Name="cp" ColumnName="cp" />
-                <ScalarProperty Name="ville" ColumnName="ville" />
-                <ScalarProperty Name="dateEmbauche" ColumnName="dateEmbauche" />
-                <ScalarProperty Name="identifiant" ColumnName="identifiant" />
-                <ScalarProperty Name="password" ColumnName="password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="Travailler" TypeName="GSB_Anjaka_SamuelModel.Travailler" StoreEntitySet="Travailler">
-            <EndProperty Name="Region">
-              <ScalarProperty Name="idRegion" ColumnName="idRegion" />
-            </EndProperty>
-            <EndProperty Name="Visiteur">
-              <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="Etat">
             <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.Etat">
               <MappingFragment StoreEntitySet="Etat">
@@ -1068,6 +1039,7 @@
                 <ScalarProperty Name="dateModif" ColumnName="dateModif" />
                 <ScalarProperty Name="montantValide" ColumnName="montantValide" />
                 <ScalarProperty Name="nbJustificatifs" ColumnName="nbJustificatifs" />
+                <ScalarProperty Name="annee" ColumnName="annee" />
                 <ScalarProperty Name="mois" ColumnName="mois" />
                 <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
               </MappingFragment>
@@ -1076,10 +1048,19 @@
           <EntitySetMapping Name="FraisForfait">
             <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.FraisForfait">
               <MappingFragment StoreEntitySet="FraisForfait">
+                <ScalarProperty Name="typeFrais" ColumnName="typeFrais" />
                 <ScalarProperty Name="idRegion" ColumnName="idRegion" />
                 <ScalarProperty Name="montant" ColumnName="montant" />
                 <ScalarProperty Name="libelle" ColumnName="libelle" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Laboratoire">
+            <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.Laboratoire">
+              <MappingFragment StoreEntitySet="Laboratoire">
+                <ScalarProperty Name="nomLabo" ColumnName="nomLabo" />
+                <ScalarProperty Name="idLabo" ColumnName="idLabo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1088,6 +1069,7 @@
               <MappingFragment StoreEntitySet="LigneFraisForfait">
                 <ScalarProperty Name="quantite" ColumnName="quantite" />
                 <ScalarProperty Name="idFraisForfait" ColumnName="idFraisForfait" />
+                <ScalarProperty Name="annee" ColumnName="annee" />
                 <ScalarProperty Name="mois" ColumnName="mois" />
                 <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
               </MappingFragment>
@@ -1099,6 +1081,7 @@
                 <ScalarProperty Name="montant" ColumnName="montant" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="annee" ColumnName="annee" />
                 <ScalarProperty Name="mois" ColumnName="mois" />
                 <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1159,6 +1142,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Region">
+            <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="Coef" ColumnName="Coef" />
+                <ScalarProperty Name="idSecteur" ColumnName="idSecteur" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+                <ScalarProperty Name="libRegion" ColumnName="libRegion" />
+                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Secteur">
+            <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.Secteur">
+              <MappingFragment StoreEntitySet="Secteur">
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+                <ScalarProperty Name="libSecteur" ColumnName="libSecteur" />
+                <ScalarProperty Name="idSecteur" ColumnName="idSecteur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="SPECIALITE">
             <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.SPECIALITE">
               <MappingFragment StoreEntitySet="SPECIALITE">
@@ -1167,6 +1170,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Visiteur">
+            <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.Visiteur">
+              <MappingFragment StoreEntitySet="Visiteur">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="identifiant" ColumnName="identifiant" />
+                <ScalarProperty Name="dateEmbauche" ColumnName="dateEmbauche" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="rue" ColumnName="rue" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="idLabo" ColumnName="idLabo" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Travailler" TypeName="GSB_Anjaka_SamuelModel.Travailler" StoreEntitySet="Travailler">
+            <EndProperty Name="Visiteur">
+              <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+            </EndProperty>
+            <EndProperty Name="Region">
+              <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

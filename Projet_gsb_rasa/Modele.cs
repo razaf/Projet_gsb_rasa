@@ -83,7 +83,7 @@ namespace Projet_gsb_rasa
             return maConnexion.Secteur.ToList();
         }
 
-        public static List<Region> ListRegion()
+        public static List<Region> ListeRegion()
         {
             return maConnexion.Region.ToList();
         }
@@ -105,6 +105,15 @@ namespace Projet_gsb_rasa
 
             return ((Visiteur) LQuery.ToList()[0]);
         }
+        public static Object getLibFraisForfait()
+        {
             
+            var LQuery = maConnexion.FraisForfait.ToList()
+                              .Where(x => x.typeFrais.Contains("FF"));
+
+            return LQuery.ToList();
+        }
+
+
     }
 }

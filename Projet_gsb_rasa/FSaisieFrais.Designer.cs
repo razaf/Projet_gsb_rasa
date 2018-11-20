@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblVisiteur = new System.Windows.Forms.Label();
             this.lblNumVisiteur = new System.Windows.Forms.Label();
             this.lblPrenomVisiteur = new System.Windows.Forms.Label();
@@ -44,7 +45,14 @@
             this.cbxRegion = new System.Windows.Forms.ComboBox();
             this.lblQteForfait = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.dgvFraisForfait = new System.Windows.Forms.DataGridView();
+            this.btnAjoutFraisForfait = new System.Windows.Forms.Button();
+            this.bscbxLib = new System.Windows.Forms.BindingSource(this.components);
+            this.bscbxRegion = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFraisForfait)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bscbxLib)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bscbxRegion)).BeginInit();
             this.SuspendLayout();
             // 
             // lblVisiteur
@@ -69,7 +77,7 @@
             // lblPrenomVisiteur
             // 
             this.lblPrenomVisiteur.AutoSize = true;
-            this.lblPrenomVisiteur.Location = new System.Drawing.Point(12, 22);
+            this.lblPrenomVisiteur.Location = new System.Drawing.Point(184, 9);
             this.lblPrenomVisiteur.Name = "lblPrenomVisiteur";
             this.lblPrenomVisiteur.Size = new System.Drawing.Size(76, 13);
             this.lblPrenomVisiteur.TabIndex = 4;
@@ -78,16 +86,17 @@
             // lblNomVisiteur
             // 
             this.lblNomVisiteur.AutoSize = true;
-            this.lblNomVisiteur.Location = new System.Drawing.Point(12, 35);
+            this.lblNomVisiteur.Location = new System.Drawing.Point(266, 9);
             this.lblNomVisiteur.Name = "lblNomVisiteur";
             this.lblNomVisiteur.Size = new System.Drawing.Size(61, 13);
             this.lblNomVisiteur.TabIndex = 5;
             this.lblNomVisiteur.Text = "nomVisiteur";
+            this.lblNomVisiteur.Click += new System.EventHandler(this.lblNomVisiteur_Click);
             // 
             // lblMois
             // 
             this.lblMois.AutoSize = true;
-            this.lblMois.Location = new System.Drawing.Point(285, 9);
+            this.lblMois.Location = new System.Drawing.Point(547, 16);
             this.lblMois.Name = "lblMois";
             this.lblMois.Size = new System.Drawing.Size(35, 13);
             this.lblMois.TabIndex = 6;
@@ -95,7 +104,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(326, 9);
+            this.dateTimePicker1.Location = new System.Drawing.Point(588, 16);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 7;
@@ -103,7 +112,7 @@
             // lblFraisForfaitaires
             // 
             this.lblFraisForfaitaires.AutoSize = true;
-            this.lblFraisForfaitaires.Location = new System.Drawing.Point(309, 161);
+            this.lblFraisForfaitaires.Location = new System.Drawing.Point(339, 187);
             this.lblFraisForfaitaires.Name = "lblFraisForfaitaires";
             this.lblFraisForfaitaires.Size = new System.Drawing.Size(80, 13);
             this.lblFraisForfaitaires.TabIndex = 8;
@@ -113,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(109, 238);
+            this.label1.Location = new System.Drawing.Point(352, 384);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 13);
             this.label1.TabIndex = 9;
@@ -123,7 +132,7 @@
             // 
             this.lblMontantUnitaire.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMontantUnitaire.AutoSize = true;
-            this.lblMontantUnitaire.Location = new System.Drawing.Point(511, 8);
+            this.lblMontantUnitaire.Location = new System.Drawing.Point(491, 10);
             this.lblMontantUnitaire.Name = "lblMontantUnitaire";
             this.lblMontantUnitaire.Size = new System.Drawing.Size(83, 13);
             this.lblMontantUnitaire.TabIndex = 10;
@@ -132,7 +141,7 @@
             // cbxLib
             // 
             this.cbxLib.FormattingEnabled = true;
-            this.cbxLib.Location = new System.Drawing.Point(3, 32);
+            this.cbxLib.Location = new System.Drawing.Point(3, 36);
             this.cbxLib.Name = "cbxLib";
             this.cbxLib.Size = new System.Drawing.Size(121, 21);
             this.cbxLib.TabIndex = 11;
@@ -143,9 +152,9 @@
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.21189F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.78811F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.tableLayoutPanel1.Controls.Add(this.cbxLib, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblRegion, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblLib, 0, 0);
@@ -153,12 +162,12 @@
             this.tableLayoutPanel1.Controls.Add(this.lblMontantUnitaire, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblQteForfait, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblTotal, 4, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(68, 177);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 212);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(705, 58);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(692, 66);
             this.tableLayoutPanel1.TabIndex = 12;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -166,7 +175,7 @@
             // 
             this.lblRegion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRegion.AutoSize = true;
-            this.lblRegion.Location = new System.Drawing.Point(214, 8);
+            this.lblRegion.Location = new System.Drawing.Point(204, 10);
             this.lblRegion.Name = "lblRegion";
             this.lblRegion.Size = new System.Drawing.Size(49, 13);
             this.lblRegion.TabIndex = 13;
@@ -177,7 +186,7 @@
             // 
             this.lblLib.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLib.AutoSize = true;
-            this.lblLib.Location = new System.Drawing.Point(52, 8);
+            this.lblLib.Location = new System.Drawing.Point(49, 10);
             this.lblLib.Name = "lblLib";
             this.lblLib.Size = new System.Drawing.Size(49, 13);
             this.lblLib.TabIndex = 13;
@@ -186,7 +195,7 @@
             // cbxRegion
             // 
             this.cbxRegion.FormattingEnabled = true;
-            this.cbxRegion.Location = new System.Drawing.Point(156, 32);
+            this.cbxRegion.Location = new System.Drawing.Point(150, 36);
             this.cbxRegion.Name = "cbxRegion";
             this.cbxRegion.Size = new System.Drawing.Size(121, 21);
             this.cbxRegion.TabIndex = 14;
@@ -195,7 +204,7 @@
             // 
             this.lblQteForfait.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblQteForfait.AutoSize = true;
-            this.lblQteForfait.Location = new System.Drawing.Point(382, 8);
+            this.lblQteForfait.Location = new System.Drawing.Point(362, 10);
             this.lblQteForfait.Name = "lblQteForfait";
             this.lblQteForfait.Size = new System.Drawing.Size(47, 13);
             this.lblQteForfait.TabIndex = 15;
@@ -205,17 +214,40 @@
             // 
             this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(646, 8);
+            this.lblTotal.Location = new System.Drawing.Point(633, 10);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(31, 13);
             this.lblTotal.TabIndex = 16;
             this.lblTotal.Text = "Total";
             // 
+            // dgvFraisForfait
+            // 
+            this.dgvFraisForfait.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFraisForfait.Location = new System.Drawing.Point(15, 63);
+            this.dgvFraisForfait.Name = "dgvFraisForfait";
+            this.dgvFraisForfait.Size = new System.Drawing.Size(705, 121);
+            this.dgvFraisForfait.TabIndex = 13;
+            // 
+            // btnAjoutFraisForfait
+            // 
+            this.btnAjoutFraisForfait.Location = new System.Drawing.Point(713, 236);
+            this.btnAjoutFraisForfait.Name = "btnAjoutFraisForfait";
+            this.btnAjoutFraisForfait.Size = new System.Drawing.Size(75, 23);
+            this.btnAjoutFraisForfait.TabIndex = 14;
+            this.btnAjoutFraisForfait.Text = "Ajouter";
+            this.btnAjoutFraisForfait.UseVisualStyleBackColor = true;
+            // 
+            // bscbxLib
+            // 
+            this.bscbxLib.CurrentChanged += new System.EventHandler(this.bscbxLib_CurrentChanged);
+            // 
             // FSaisieFrais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 493);
+            this.Controls.Add(this.btnAjoutFraisForfait);
+            this.Controls.Add(this.dgvFraisForfait);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblFraisForfaitaires);
@@ -226,9 +258,13 @@
             this.Controls.Add(this.lblNumVisiteur);
             this.Controls.Add(this.lblVisiteur);
             this.Name = "FSaisieFrais";
-            this.Text = "FSaisieFrais";
+            this.Text = " ";
+            this.Load += new System.EventHandler(this.FSaisieFrais_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFraisForfait)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bscbxLib)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bscbxRegion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +287,9 @@
         private System.Windows.Forms.ComboBox cbxRegion;
         private System.Windows.Forms.Label lblQteForfait;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.DataGridView dgvFraisForfait;
+        private System.Windows.Forms.Button btnAjoutFraisForfait;
+        private System.Windows.Forms.BindingSource bscbxLib;
+        private System.Windows.Forms.BindingSource bscbxRegion;
     }
 }
