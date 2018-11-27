@@ -37,7 +37,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblFraisForfaitaires = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblMontantUnitaire = new System.Windows.Forms.Label();
+            this.lbltxtMontantUnitaire = new System.Windows.Forms.Label();
             this.cbxLib = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblRegion = new System.Windows.Forms.Label();
@@ -49,6 +49,9 @@
             this.btnAjoutFraisForfait = new System.Windows.Forms.Button();
             this.bscbxLib = new System.Windows.Forms.BindingSource(this.components);
             this.bscbxRegion = new System.Windows.Forms.BindingSource(this.components);
+            this.lblMontantFF = new System.Windows.Forms.Label();
+            this.txtQteFF = new System.Windows.Forms.TextBox();
+            this.lblMontantUFF = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFraisForfait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bscbxLib)).BeginInit();
@@ -128,15 +131,15 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Frais kilometrique";
             // 
-            // lblMontantUnitaire
+            // lbltxtMontantUnitaire
             // 
-            this.lblMontantUnitaire.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblMontantUnitaire.AutoSize = true;
-            this.lblMontantUnitaire.Location = new System.Drawing.Point(491, 10);
-            this.lblMontantUnitaire.Name = "lblMontantUnitaire";
-            this.lblMontantUnitaire.Size = new System.Drawing.Size(83, 13);
-            this.lblMontantUnitaire.TabIndex = 10;
-            this.lblMontantUnitaire.Text = "Montant unitaire";
+            this.lbltxtMontantUnitaire.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbltxtMontantUnitaire.AutoSize = true;
+            this.lbltxtMontantUnitaire.Location = new System.Drawing.Point(490, 10);
+            this.lbltxtMontantUnitaire.Name = "lbltxtMontantUnitaire";
+            this.lbltxtMontantUnitaire.Size = new System.Drawing.Size(83, 13);
+            this.lbltxtMontantUnitaire.TabIndex = 10;
+            this.lbltxtMontantUnitaire.Text = "Montant unitaire";
             // 
             // cbxLib
             // 
@@ -145,6 +148,7 @@
             this.cbxLib.Name = "cbxLib";
             this.cbxLib.Size = new System.Drawing.Size(121, 21);
             this.cbxLib.TabIndex = 11;
+            this.cbxLib.SelectedIndexChanged += new System.EventHandler(this.cbxLib_SelectedIndexChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -154,14 +158,17 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.78811F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.tableLayoutPanel1.Controls.Add(this.cbxLib, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblRegion, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblLib, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.cbxRegion, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblMontantUnitaire, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbltxtMontantUnitaire, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblQteForfait, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblTotal, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtQteFF, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblMontantFF, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblMontantUFF, 3, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 212);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -175,7 +182,7 @@
             // 
             this.lblRegion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRegion.AutoSize = true;
-            this.lblRegion.Location = new System.Drawing.Point(204, 10);
+            this.lblRegion.Location = new System.Drawing.Point(203, 10);
             this.lblRegion.Name = "lblRegion";
             this.lblRegion.Size = new System.Drawing.Size(49, 13);
             this.lblRegion.TabIndex = 13;
@@ -186,7 +193,7 @@
             // 
             this.lblLib.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLib.AutoSize = true;
-            this.lblLib.Location = new System.Drawing.Point(49, 10);
+            this.lblLib.Location = new System.Drawing.Point(48, 10);
             this.lblLib.Name = "lblLib";
             this.lblLib.Size = new System.Drawing.Size(49, 13);
             this.lblLib.TabIndex = 13;
@@ -195,16 +202,17 @@
             // cbxRegion
             // 
             this.cbxRegion.FormattingEnabled = true;
-            this.cbxRegion.Location = new System.Drawing.Point(150, 36);
+            this.cbxRegion.Location = new System.Drawing.Point(149, 36);
             this.cbxRegion.Name = "cbxRegion";
             this.cbxRegion.Size = new System.Drawing.Size(121, 21);
             this.cbxRegion.TabIndex = 14;
+            this.cbxRegion.SelectedIndexChanged += new System.EventHandler(this.cbxRegion_SelectedIndexChanged);
             // 
             // lblQteForfait
             // 
             this.lblQteForfait.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblQteForfait.AutoSize = true;
-            this.lblQteForfait.Location = new System.Drawing.Point(362, 10);
+            this.lblQteForfait.Location = new System.Drawing.Point(361, 10);
             this.lblQteForfait.Name = "lblQteForfait";
             this.lblQteForfait.Size = new System.Drawing.Size(47, 13);
             this.lblQteForfait.TabIndex = 15;
@@ -214,7 +222,7 @@
             // 
             this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(633, 10);
+            this.lblTotal.Location = new System.Drawing.Point(632, 10);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(31, 13);
             this.lblTotal.TabIndex = 16;
@@ -236,10 +244,39 @@
             this.btnAjoutFraisForfait.TabIndex = 14;
             this.btnAjoutFraisForfait.Text = "Ajouter";
             this.btnAjoutFraisForfait.UseVisualStyleBackColor = true;
+            this.btnAjoutFraisForfait.Click += new System.EventHandler(this.btnAjoutFraisForfait_Click);
             // 
             // bscbxLib
             // 
             this.bscbxLib.CurrentChanged += new System.EventHandler(this.bscbxLib_CurrentChanged);
+            // 
+            // lblMontantFF
+            // 
+            this.lblMontantFF.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMontantFF.AutoSize = true;
+            this.lblMontantFF.Location = new System.Drawing.Point(625, 43);
+            this.lblMontantFF.Name = "lblMontantFF";
+            this.lblMontantFF.Size = new System.Drawing.Size(46, 13);
+            this.lblMontantFF.TabIndex = 17;
+            this.lblMontantFF.Text = "Montant";
+            // 
+            // txtQteFF
+            // 
+            this.txtQteFF.Location = new System.Drawing.Point(313, 36);
+            this.txtQteFF.Name = "txtQteFF";
+            this.txtQteFF.Size = new System.Drawing.Size(100, 20);
+            this.txtQteFF.TabIndex = 18;
+            this.txtQteFF.TextChanged += new System.EventHandler(this.txtQteFF_TextChanged);
+            // 
+            // lblMontantUFF
+            // 
+            this.lblMontantUFF.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMontantUFF.AutoSize = true;
+            this.lblMontantUFF.Location = new System.Drawing.Point(491, 43);
+            this.lblMontantUFF.Name = "lblMontantUFF";
+            this.lblMontantUFF.Size = new System.Drawing.Size(82, 13);
+            this.lblMontantUFF.TabIndex = 19;
+            this.lblMontantUFF.Text = "MontantUnitaire";
             // 
             // FSaisieFrais
             // 
@@ -279,7 +316,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lblFraisForfaitaires;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblMontantUnitaire;
+        private System.Windows.Forms.Label lbltxtMontantUnitaire;
         private System.Windows.Forms.ComboBox cbxLib;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblRegion;
@@ -291,5 +328,8 @@
         private System.Windows.Forms.Button btnAjoutFraisForfait;
         private System.Windows.Forms.BindingSource bscbxLib;
         private System.Windows.Forms.BindingSource bscbxRegion;
+        private System.Windows.Forms.Label lblMontantFF;
+        private System.Windows.Forms.TextBox txtQteFF;
+        private System.Windows.Forms.Label lblMontantUFF;
     }
 }

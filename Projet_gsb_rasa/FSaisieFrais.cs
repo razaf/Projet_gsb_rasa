@@ -12,6 +12,9 @@ namespace Projet_gsb_rasa
 {
     public partial class FSaisieFrais : Form
     {
+        private double coef;
+        private double montantU;
+        private int qte;
         public FSaisieFrais()
         {
             InitializeComponent();
@@ -40,6 +43,8 @@ namespace Projet_gsb_rasa
 
             bscbxLib.DataSource = Modele.getLibFraisForfait();
             cbxLib.DataSource = bscbxLib;
+
+            txtQteFF.Text = "1";
         }
         private void btnAjoutFF_Click(object sender, EventArgs e)
         {
@@ -69,6 +74,39 @@ namespace Projet_gsb_rasa
         private void bscbxLib_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbxLib_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.montantU = Modele.getMontantUnitaire(cbxLib.SelectedValue.ToString());
+            rafraichir();
+        }
+
+        private void cbxRegion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.coef = Modele.getCoef(int.Parse(cbxRegion.SelectedValue.ToString()));
+            rafraichir();
+        }
+        private void rafraichir()
+        {
+            double montant = coef * montantU * qte;
+            lblMontantUFF.Text = this.montantU.ToString();
+            lblMontantFF.Text = montant.ToString();
+        }
+
+        private void txtQteFF_TextChanged(object sender, EventArgs e)
+        {
+            this.qte = int.Parse(txtQteFF.Text);
+            rafraichir();
+        }
+
+        private void btnAjoutFraisForfait_Click(object sender, EventArgs e)
+        {
+            bool x = Modele.AjoutLigneFraisForfait(dateTimePicker1.Value.Month.ToString(), dateTimePicker1.Value.Year, cbxLib.ValueMember, int.Parse(lblQteForfait.Text), int.Parse(lblMontantFF.Text));
+            if(x== false)
+            {
+                MessageBox.Show("erreur");
+            }
         }
     }
 }

@@ -118,7 +118,55 @@ namespace Projet_gsb_rasa
 
             return LQuery.ToList();
         }
+        public static double getCoef(int id)
+        {
+            double vretour;
 
+            var LQuery = maConnexion.Region.ToList()
+                              .Where(x => x.idRegion == id);
+            vretour = (double)((Region)LQuery.ToList()[0]).Coef;
+            return vretour;
+        }
+        public static double getMontantUnitaire(string idFraitForfait)
+        {
+            double vretour;
+            var LQuery = maConnexion.FraisForfait.ToList()
+                .Where(x => x.id == idFraitForfait);
+
+            vretour = (double)((FraisForfait)LQuery.ToList()[0]).montant;
+            return vretour;
+        }
+        public static bool AjoutLigneFraisForfait(string mois,int annee,string idFraitForfait,int qte,double montant)
+        {
+            bool vretour = true;
+            string idVisiteur = utilisateurConnecte.idVisiteur;
+            try
+            {
+                LigneFraisForfait newLFF  = new LigneFraisForfait();
+                newLFF.idVisiteur = utilisateurConnecte.idVisiteur;
+                newLFF.mois = mois;
+                newLFF.annee = annee;
+                newLFF.idFraisForfait = idFraitForfait;
+                newLFF.quantite = qte;
+                maConnexion.LigneFraisForfait.Add(newLFF);
+                maConnexion.SaveChanges();
+
+                fichefrais ficheF = new fichefrais();
+                ficheF.idVisiteur = utilisateurConnecte.idVisiteur;
+                ficheF.mois = mois;
+                ficheF.annee = annee;
+                ficheF.montantValide = (decimal)montant;
+                maConnexion.fichefrais.Add(ficheF);
+                maConnexion.SaveChanges();
+
+            }
+            catch(Exception)
+            {
+                vretour = false;
+            }
+            return vretour;
+
+        }
 
     }
 }
