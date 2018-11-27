@@ -56,5 +56,12 @@ namespace Projet_gsb_rasa
             fs1 = new listevisiteurregion();
             fs1.Show();
         }
+
+        private void visualiserProfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InformationProfil fsO;
+            fsO = new InformationProfil();
+            fsO.Show();
+        }
     }
 }

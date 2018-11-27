@@ -62,7 +62,9 @@ namespace Projet_gsb_rasa
             return vretour;
         }
 
-       public static Object RegionParSecteur(int idSecteur)
+
+
+       public static Object VisiteurParSecteur(int idSecteur)
         {
             var LQuery = maConnexion.Secteur.ToList()
                       // .Join maConnexion.
@@ -75,6 +77,8 @@ namespace Projet_gsb_rasa
             return LQuery.ToList();
 
         }
+
+
 
       //  public static Object ResponsableParRegion()
     

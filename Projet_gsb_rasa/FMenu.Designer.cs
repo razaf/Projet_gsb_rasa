@@ -30,10 +30,13 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.visiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saisieDesFraisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.listeVisiteurParSecteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeVisiteurParRegionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saisieDesFraisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.profiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visualiserProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +44,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.visiteurToolStripMenuItem,
-            this.saisieDesFraisToolStripMenuItem});
+            this.saisieDesFraisToolStripMenuItem,
+            this.profiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -58,13 +62,6 @@
             this.visiteurToolStripMenuItem.Text = "listes des visiteurs";
             this.visiteurToolStripMenuItem.Click += new System.EventHandler(this.visiteurToolStripMenuItem_Click);
             // 
-            // saisieDesFraisToolStripMenuItem
-            // 
-            this.saisieDesFraisToolStripMenuItem.Name = "saisieDesFraisToolStripMenuItem";
-            this.saisieDesFraisToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.saisieDesFraisToolStripMenuItem.Text = "Saisie des frais";
-            this.saisieDesFraisToolStripMenuItem.Click += new System.EventHandler(this.saisieDesFraisToolStripMenuItem_Click);
-            // 
             // listeVisiteurParSecteurToolStripMenuItem
             // 
             this.listeVisiteurParSecteurToolStripMenuItem.Name = "listeVisiteurParSecteurToolStripMenuItem";
@@ -78,6 +75,35 @@
             this.listeVisiteurParRegionToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.listeVisiteurParRegionToolStripMenuItem.Text = "liste visiteur par region";
             this.listeVisiteurParRegionToolStripMenuItem.Click += new System.EventHandler(this.listeVisiteurParRegionToolStripMenuItem_Click);
+            // 
+            // saisieDesFraisToolStripMenuItem
+            // 
+            this.saisieDesFraisToolStripMenuItem.Name = "saisieDesFraisToolStripMenuItem";
+            this.saisieDesFraisToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.saisieDesFraisToolStripMenuItem.Text = "Saisie des frais";
+            this.saisieDesFraisToolStripMenuItem.Click += new System.EventHandler(this.saisieDesFraisToolStripMenuItem_Click);
+            // 
+            // profiToolStripMenuItem
+            // 
+            this.profiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.visualiserProfilToolStripMenuItem,
+            this.modifierProfilToolStripMenuItem});
+            this.profiToolStripMenuItem.Name = "profiToolStripMenuItem";
+            this.profiToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.profiToolStripMenuItem.Text = "profil";
+            // 
+            // visualiserProfilToolStripMenuItem
+            // 
+            this.visualiserProfilToolStripMenuItem.Name = "visualiserProfilToolStripMenuItem";
+            this.visualiserProfilToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.visualiserProfilToolStripMenuItem.Text = "Visualiser profil";
+            this.visualiserProfilToolStripMenuItem.Click += new System.EventHandler(this.visualiserProfilToolStripMenuItem_Click);
+            // 
+            // modifierProfilToolStripMenuItem
+            // 
+            this.modifierProfilToolStripMenuItem.Name = "modifierProfilToolStripMenuItem";
+            this.modifierProfilToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifierProfilToolStripMenuItem.Text = "modifier profil";
             // 
             // FMenu
             // 
@@ -103,5 +129,8 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolStripMenuItem listeVisiteurParSecteurToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeVisiteurParRegionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem profiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem visualiserProfilToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifierProfilToolStripMenuItem;
     }
 }

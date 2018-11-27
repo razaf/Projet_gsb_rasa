@@ -40,10 +40,12 @@
             this.txt_rue_resp = new System.Windows.Forms.TextBox();
             this.txt_ville_resp = new System.Windows.Forms.TextBox();
             this.txt_prenom_respon = new System.Windows.Forms.TextBox();
+            this.bsVisiteurS = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisiteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsResponsable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteurS)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvVisiteur
@@ -141,6 +143,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsResponsable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteurS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,5 +162,6 @@
         private System.Windows.Forms.TextBox txt_rue_resp;
         private System.Windows.Forms.TextBox txt_ville_resp;
         private System.Windows.Forms.TextBox txt_prenom_respon;
+        private System.Windows.Forms.BindingSource bsVisiteurS;
     }
 }

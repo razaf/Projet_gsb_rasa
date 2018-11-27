@@ -94,6 +94,12 @@
     <Compile Include="FSaisieFrais.Designer.cs">
       <DependentUpon>FSaisieFrais.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformationProfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformationProfil.Designer.cs">
+      <DependentUpon>InformationProfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Laboratoire.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
@@ -122,6 +128,12 @@
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
     <Compile Include="Modele.cs" />
+    <Compile Include="ModifProfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifProfil.Designer.cs">
+      <DependentUpon>ModifProfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="MOTIF.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
@@ -157,11 +169,17 @@
     <EmbeddedResource Include="FSaisieFrais.resx">
       <DependentUpon>FSaisieFrais.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InformationProfil.resx">
+      <DependentUpon>InformationProfil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="listevisiteurregion.resx">
       <DependentUpon>listevisiteurregion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="listVisiteursecteur.resx">
       <DependentUpon>listVisiteursecteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifProfil.resx">
+      <DependentUpon>ModifProfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

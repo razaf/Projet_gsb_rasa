@@ -40,7 +40,12 @@ namespace Projet_gsb_rasa
         {
             if (fermeture) return;
             bsVisiteur.DataSource = ((Region)bsSource.Current).Visiteur;
-            dgvVisiteur.DataSource = bsVisiteur;
+            bsVisiteurS.DataSource = ((Region)bsSource.Current).Visiteur1;
+            dgvVisiteur.DataSource = bsVisiteurS;
+            
+            {
+
+            }
              for (int i = 0; i < dgvVisiteur.ColumnCount; i++)
              {
                  dgvVisiteur.Columns[i].Visible = false;
@@ -68,6 +73,15 @@ namespace Projet_gsb_rasa
             txt_rue_resp.Text = ((Region)bsSource.Current).Visiteur.rue.ToString();
             txt_cp_res.Text = ((Region)bsSource.Current).Visiteur.cp.ToString();
             txt_ville_resp.Text = ((Region)bsSource.Current).Visiteur.ville.ToString();
+
+
+
+
+
+        }
+
+        private void bsVisiteur_CurrentChanged(object sender, EventArgs e)
+        {
 
         }
     }

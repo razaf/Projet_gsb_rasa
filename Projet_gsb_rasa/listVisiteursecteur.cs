@@ -22,11 +22,19 @@ namespace Projet_gsb_rasa
         {
              if (fermeture) return;
             bsVisiteur.DataSource = ((Secteur)bsSource.Current).Visiteur;
-              //dgvVisiteur.DataSource = bsVisiteur;
-             /* for (int i = 0; i < dgvVisiteur.ColumnCount; i++)
+            bsVisiteur.DataSource = ((Secteur)bsSource.Current).Region;
+            bsVisiteurS.DataSource = ((Region)bsVisiteur.Current).Visiteur1;
+            
+
+            dgvVisiteur.DataSource = bsVisiteurS;
+            
+              for (int i = 0; i < dgvVisiteur.ColumnCount; i++)
               {
                   dgvVisiteur.Columns[i].Visible = false;
+
               }
+            
+
               dgvVisiteur.Columns["idVisiteur"].Visible = true;
               dgvVisiteur.Columns["nom"].Visible = true;
               dgvVisiteur.Columns["rue"].Visible = true;
@@ -43,7 +51,7 @@ namespace Projet_gsb_rasa
               dgvVisiteur.Columns["cp"].HeaderText = "CODE POSTAL";
               dgvVisiteur.Columns["cp"].DisplayIndex = 3;
               dgvVisiteur.Columns["ville"].HeaderText = "VILLE";
-              dgvVisiteur.Columns["ville"].DisplayIndex = 4;*/
+              dgvVisiteur.Columns["ville"].DisplayIndex = 4;
             txt_nom_respon.Text = ((Secteur)bsSource.Current).Visiteur.nom.ToString();
             txt_prenom_respon.Text = ((Secteur)bsSource.Current).Visiteur.prenom.ToString();
             txt_rue_resp.Text = ((Secteur)bsSource.Current).Visiteur.rue.ToString();
@@ -64,14 +72,14 @@ namespace Projet_gsb_rasa
 
         private void cboSecteur_SelectedIndexChanged(object sender, EventArgs e)
         {
-           /* bsVisiteur.DataSource = Modele.RegionParSecteur(int.Parse(cboSecteur.SelectedValue.ToString()));
+           /* bsVisiteur.DataSource = Modele.VisiteurParSecteur(int.Parse(cboSecteur.SelectedValue.ToString()));
             dgvVisiteur.DataSource = bsVisiteur;
             dgvVisiteur.Columns[0].HeaderText = "NUM";
             dgvVisiteur.Columns[1].HeaderText = "NOM";
             dgvVisiteur.Columns[2].HeaderText = "RUE";
             dgvVisiteur.Columns[3].HeaderText = "CODE POSTAL";
-            dgvVisiteur.Columns[4].HeaderText = "VILLE";
-            */
+            dgvVisiteur.Columns[4].HeaderText = "VILLE";*/
+            
         }
         
        

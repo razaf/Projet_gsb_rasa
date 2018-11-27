@@ -40,10 +40,12 @@
             this.bsSource = new System.Windows.Forms.BindingSource(this.components);
             this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
             this.bsResponsable = new System.Windows.Forms.BindingSource(this.components);
+            this.bsVisiteurS = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisiteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsResponsable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteurS)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_prenom_respon
@@ -112,6 +114,10 @@
             // 
             this.bsSource.CurrentChanged += new System.EventHandler(this.bs_source_currentChange);
             // 
+            // bsVisiteur
+            // 
+            this.bsVisiteur.CurrentChanged += new System.EventHandler(this.bsVisiteur_CurrentChanged);
+            // 
             // listevisiteurregion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +138,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsResponsable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteurS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +157,6 @@
         private System.Windows.Forms.BindingSource bsSource;
         private System.Windows.Forms.BindingSource bsVisiteur;
         private System.Windows.Forms.BindingSource bsResponsable;
+        private System.Windows.Forms.BindingSource bsVisiteurS;
     }
 }
