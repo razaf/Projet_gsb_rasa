@@ -142,6 +142,7 @@
             this.bpmodif.TabIndex = 18;
             this.bpmodif.Text = "MODIFIER PROFIL";
             this.bpmodif.UseVisualStyleBackColor = true;
+            this.bpmodif.Click += new System.EventHandler(this.bpmodif_Click);
             // 
             // lblprofil
             // 

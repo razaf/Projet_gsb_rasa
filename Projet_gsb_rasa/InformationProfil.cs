@@ -50,5 +50,12 @@ namespace Projet_gsb_rasa
         {
 
         }
+
+        private void bpmodif_Click(object sender, EventArgs e)
+        {
+            ModifProfil fsO;
+            fsO = new ModifProfil();
+            fsO.Show();
+        }
     }
 }
