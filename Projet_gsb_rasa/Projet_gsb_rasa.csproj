@@ -103,6 +103,9 @@
     <Compile Include="Laboratoire.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
+    <Compile Include="lesFraisForfait.cs">
+      <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
+    </Compile>
     <Compile Include="LigneFraisForfait.cs">
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>

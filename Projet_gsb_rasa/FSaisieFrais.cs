@@ -44,6 +44,9 @@ namespace Projet_gsb_rasa
             bscbxLib.DataSource = Modele.getLibFraisForfait();
             cbxLib.DataSource = bscbxLib;
 
+            bsDgvLesFraisForfait.DataSource = Modele.getLesFraisForfait();
+            dgvFraisForfait.DataSource = bsDgvLesFraisForfait;
+
             txtQteFF.Text = "1";
         }
         private void btnAjoutFF_Click(object sender, EventArgs e)
@@ -102,8 +105,8 @@ namespace Projet_gsb_rasa
 
         private void btnAjoutFraisForfait_Click(object sender, EventArgs e)
         {
-            bool x = Modele.AjoutLigneFraisForfait(dateTimePicker1.Value.Month.ToString(), dateTimePicker1.Value.Year, cbxLib.ValueMember, int.Parse(lblQteForfait.Text), int.Parse(lblMontantFF.Text));
-            if(x== false)
+            bool x = Modele.AjoutLigneFraisForfait(dateTimePicker1.Value.Month.ToString(), int.Parse(dateTimePicker1.Value.Year.ToString()), cbxLib.SelectedValue.ToString(), int.Parse(txtQteFF.Text), double.Parse(lblMontantFF.Text));
+            if (x == false)
             {
                 MessageBox.Show("erreur");
             }

@@ -41,5 +41,6 @@ namespace Projet_gsb_rasa
         public virtual DbSet<Secteur> Secteur { get; set; }
         public virtual DbSet<SPECIALITE> SPECIALITE { get; set; }
         public virtual DbSet<Visiteur> Visiteur { get; set; }
+        public virtual DbSet<lesFraisForfait> lesFraisForfait { get; set; }
     }
 }
