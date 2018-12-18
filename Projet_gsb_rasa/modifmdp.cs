@@ -16,5 +16,19 @@ namespace Projet_gsb_rasa
         {
             InitializeComponent();
         }
+
+        private void bpOKmdp_Click(object sender, EventArgs e)
+        {
+            bool x = Modele.ModifMDP(txtconfirmMdp.ToString());
+            if (x == false)
+            {
+                MessageBox.Show("erreur");
+            }
+        }
+
+        private void txtconfirmMdp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

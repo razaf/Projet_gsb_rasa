@@ -42,6 +42,7 @@
             this.txtconfirmMdp.Name = "txtconfirmMdp";
             this.txtconfirmMdp.Size = new System.Drawing.Size(77, 20);
             this.txtconfirmMdp.TabIndex = 45;
+            this.txtconfirmMdp.TextChanged += new System.EventHandler(this.txtconfirmMdp_TextChanged);
             // 
             // textmdp
             // 
@@ -85,6 +86,7 @@
             this.bpOKmdp.TabIndex = 46;
             this.bpOKmdp.Text = "OK";
             this.bpOKmdp.UseVisualStyleBackColor = true;
+            this.bpOKmdp.Click += new System.EventHandler(this.bpOKmdp_Click);
             // 
             // modifmdp
             // 

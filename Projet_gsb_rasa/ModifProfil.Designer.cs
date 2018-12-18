@@ -162,6 +162,7 @@
             this.bpOK.TabIndex = 35;
             this.bpOK.Text = "OK";
             this.bpOK.UseVisualStyleBackColor = true;
+            this.bpOK.Click += new System.EventHandler(this.bpOK_Click);
             // 
             // bpCANCEL
             // 

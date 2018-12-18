@@ -176,7 +176,57 @@ namespace Projet_gsb_rasa
             return vretour;
 
         }
-       // public static bool Modifinfo(string nom, string prenom, string rue, string ville, int cp)
+        public static bool Modifinfo(string nom, string prenom, string rue, string ville, string cp)
+        {
+            bool vretour = true;
+            try
+            {
+
+                Visiteur InformationProf = new Visiteur();
+                InformationProf.nom = nom;
+                InformationProf.prenom = prenom;
+                InformationProf.rue = rue;
+                InformationProf.ville = ville;
+                InformationProf.cp = cp;
+
+
+                maConnexion.Visiteur.Add(InformationProf);
+                maConnexion.SaveChanges();
+            }
+            catch(Exception )
+            {
+
+                vretour = false;
+            }
+
+                return vretour;
+
+        }
+
+
+        public static bool ModifMDP(string mdp)
+        {
+            bool vretour = true;
+            try
+            {
+
+                Visiteur modifmdp = new Visiteur();
+                modifmdp.password = mdp;
+               
+
+
+                maConnexion.Visiteur.Add(modifmdp);
+                maConnexion.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                vretour = false;
+            }
+
+            return vretour;
+
+        }
 
 
 

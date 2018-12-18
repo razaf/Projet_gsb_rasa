@@ -51,5 +51,14 @@ namespace Projet_gsb_rasa
             fsO = new modifmdp();
             fsO.Show();
         }
+
+        private void bpOK_Click(object sender, EventArgs e)
+        {
+            bool x = Modele.Modifinfo(txtNom.ToString(),txtprenom.ToString(),txtrue.ToString(),txtVille.ToString(),txtCp.ToString());
+            if (x == false)
+            {
+                MessageBox.Show("erreur");
+            }
+        }
     }
 }
