@@ -171,6 +171,9 @@ namespace Projet_gsb_rasa
             return vretour;
 
         }
+       // public static bool Modifinfo(string nom, string prenom, string rue, string ville, int cp)
+
+
 
     }
 }
