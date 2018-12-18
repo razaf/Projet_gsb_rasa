@@ -33,10 +33,10 @@
             this.listeVisiteurParSecteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeVisiteurParRegionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saisieDesFraisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.profiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visualiserProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +104,7 @@
             this.modifierProfilToolStripMenuItem.Name = "modifierProfilToolStripMenuItem";
             this.modifierProfilToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modifierProfilToolStripMenuItem.Text = "modifier profil";
+            this.modifierProfilToolStripMenuItem.Click += new System.EventHandler(this.modifierProfilToolStripMenuItem_Click);
             // 
             // FMenu
             // 
