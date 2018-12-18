@@ -63,5 +63,12 @@ namespace Projet_gsb_rasa
             fsO = new InformationProfil();
             fsO.Show();
         }
+
+        private void modifierProfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModifProfil fsO;
+            fsO = new ModifProfil();
+            fsO.Show();
+        }
     }
 }

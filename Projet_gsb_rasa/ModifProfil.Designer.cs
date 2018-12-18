@@ -30,8 +30,6 @@
         {
             this.lblAdresse = new System.Windows.Forms.Label();
             this.lblVisiteur = new System.Windows.Forms.Label();
-            this.lblmdp = new System.Windows.Forms.Label();
-            this.lblConfirmationmdp = new System.Windows.Forms.Label();
             this.txtprenom = new System.Windows.Forms.TextBox();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.lblnom = new System.Windows.Forms.Label();
@@ -42,8 +40,7 @@
             this.txtVille = new System.Windows.Forms.TextBox();
             this.lblCP = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textmdp = new System.Windows.Forms.TextBox();
-            this.txtconfirmMdp = new System.Windows.Forms.TextBox();
+            this.bpmodifmdp = new System.Windows.Forms.Button();
             this.bpOK = new System.Windows.Forms.Button();
             this.bpCANCEL = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -65,24 +62,6 @@
             this.lblVisiteur.Size = new System.Drawing.Size(47, 13);
             this.lblVisiteur.TabIndex = 16;
             this.lblVisiteur.Text = "Visiteur :";
-            // 
-            // lblmdp
-            // 
-            this.lblmdp.AutoSize = true;
-            this.lblmdp.Location = new System.Drawing.Point(81, 244);
-            this.lblmdp.Name = "lblmdp";
-            this.lblmdp.Size = new System.Drawing.Size(123, 13);
-            this.lblmdp.TabIndex = 21;
-            this.lblmdp.Text = "Nouveau mot de passe :";
-            // 
-            // lblConfirmationmdp
-            // 
-            this.lblConfirmationmdp.AutoSize = true;
-            this.lblConfirmationmdp.Location = new System.Drawing.Point(81, 287);
-            this.lblConfirmationmdp.Name = "lblConfirmationmdp";
-            this.lblConfirmationmdp.Size = new System.Drawing.Size(152, 13);
-            this.lblConfirmationmdp.TabIndex = 22;
-            this.lblConfirmationmdp.Text = "Confirmation du mot de passe :";
             // 
             // txtprenom
             // 
@@ -165,19 +144,15 @@
             this.label2.TabIndex = 32;
             this.label2.Text = "Ville :";
             // 
-            // textmdp
+            // bpmodifmdp
             // 
-            this.textmdp.Location = new System.Drawing.Point(250, 241);
-            this.textmdp.Name = "textmdp";
-            this.textmdp.Size = new System.Drawing.Size(77, 20);
-            this.textmdp.TabIndex = 33;
-            // 
-            // txtconfirmMdp
-            // 
-            this.txtconfirmMdp.Location = new System.Drawing.Point(250, 284);
-            this.txtconfirmMdp.Name = "txtconfirmMdp";
-            this.txtconfirmMdp.Size = new System.Drawing.Size(77, 20);
-            this.txtconfirmMdp.TabIndex = 34;
+            this.bpmodifmdp.Location = new System.Drawing.Point(264, 237);
+            this.bpmodifmdp.Name = "bpmodifmdp";
+            this.bpmodifmdp.Size = new System.Drawing.Size(219, 27);
+            this.bpmodifmdp.TabIndex = 37;
+            this.bpmodifmdp.Text = "MODIFIER MOT DE PASSE";
+            this.bpmodifmdp.UseVisualStyleBackColor = true;
+            this.bpmodifmdp.Click += new System.EventHandler(this.bpmodifmdp_Click);
             // 
             // bpOK
             // 
@@ -202,10 +177,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bpmodifmdp);
             this.Controls.Add(this.bpCANCEL);
             this.Controls.Add(this.bpOK);
-            this.Controls.Add(this.txtconfirmMdp);
-            this.Controls.Add(this.textmdp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCP);
             this.Controls.Add(this.txtVille);
@@ -216,12 +190,11 @@
             this.Controls.Add(this.lblnom);
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.txtprenom);
-            this.Controls.Add(this.lblConfirmationmdp);
-            this.Controls.Add(this.lblmdp);
             this.Controls.Add(this.lblAdresse);
             this.Controls.Add(this.lblVisiteur);
             this.Name = "ModifProfil";
             this.Text = "ModifProfil";
+            this.Load += new System.EventHandler(this.ModifProfil_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,8 +203,6 @@
         #endregion
         private System.Windows.Forms.Label lblAdresse;
         private System.Windows.Forms.Label lblVisiteur;
-        private System.Windows.Forms.Label lblmdp;
-        private System.Windows.Forms.Label lblConfirmationmdp;
         private System.Windows.Forms.TextBox txtprenom;
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.Label lblnom;
@@ -242,8 +213,7 @@
         private System.Windows.Forms.TextBox txtVille;
         private System.Windows.Forms.Label lblCP;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textmdp;
-        private System.Windows.Forms.TextBox txtconfirmMdp;
+        private System.Windows.Forms.Button bpmodifmdp;
         private System.Windows.Forms.Button bpOK;
         private System.Windows.Forms.Button bpCANCEL;
     }

@@ -131,6 +131,12 @@
       <DependentUpon>EDMX GSB RASA.tt</DependentUpon>
     </Compile>
     <Compile Include="Modele.cs" />
+    <Compile Include="modifmdp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modifmdp.Designer.cs">
+      <DependentUpon>modifmdp.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifProfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="listVisiteursecteur.resx">
       <DependentUpon>listVisiteursecteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modifmdp.resx">
+      <DependentUpon>modifmdp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifProfil.resx">
       <DependentUpon>ModifProfil.cs</DependentUpon>
