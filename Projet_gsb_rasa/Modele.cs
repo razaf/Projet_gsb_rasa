@@ -140,6 +140,10 @@ namespace Projet_gsb_rasa
             vretour = (double)((FraisForfait)LQuery.ToList()[0]).montant;
             return vretour;
         }
+        public static Object getLesFraisForfait()
+        {
+            return maConnexion.lesFraisForfait.AsNoTracking().ToList();
+        }
         public static bool AjoutLigneFraisForfait(string mois, int annee, string idFraitForfait, int qte, double montant)
         {
             bool vretour = true;

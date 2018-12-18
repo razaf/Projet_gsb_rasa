@@ -173,6 +173,20 @@
           <Property Name="identifiant" Type="varchar" MaxLength="16" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'GSB_Anjaka_Samuel.dbo.lesFraisForfait' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="lesFraisForfait">
+          <Key>
+            <PropertyRef Name="mois" />
+            <PropertyRef Name="annee" />
+          </Key>
+          <Property Name="mois" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="annee" Type="int" Nullable="false" />
+          <Property Name="quantite" Type="int" />
+          <Property Name="libelle" Type="char" MaxLength="40" />
+          <Property Name="montant" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Total" Type="decimal" Precision="16" Scale="2" />
+        </EntityType>
         <Association Name="FK__fichefrai__idEta__656C112C">
           <End Role="Etat" Type="Self.Etat" Multiplicity="0..1" />
           <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="*" />
@@ -427,6 +441,16 @@
           <EntitySet Name="SPECIALITE" EntityType="Self.SPECIALITE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Travailler" EntityType="Self.Travailler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Visiteur" EntityType="Self.Visiteur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lesFraisForfait" EntityType="Self.lesFraisForfait" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [lesFraisForfait].[mois] AS [mois], 
+    [lesFraisForfait].[annee] AS [annee], 
+    [lesFraisForfait].[quantite] AS [quantite], 
+    [lesFraisForfait].[libelle] AS [libelle], 
+    [lesFraisForfait].[montant] AS [montant], 
+    [lesFraisForfait].[Total] AS [Total]
+    FROM [dbo].[lesFraisForfait] AS [lesFraisForfait]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__fichefrai__idEta__656C112C" Association="Self.FK__fichefrai__idEta__656C112C">
             <End Role="Etat" EntitySet="Etat" />
             <End Role="fichefrais" EntitySet="fichefrais" />
@@ -597,6 +621,7 @@
             <End Role="Region" EntitySet="Region" />
             <End Role="Visiteur" EntitySet="Visiteur" />
           </AssociationSet>
+          <EntitySet Name="lesFraisForfait" EntityType="GSB_Anjaka_SamuelModel.lesFraisForfait" />
         </EntityContainer>
         <EntityType Name="Etat">
           <Key>
@@ -1010,6 +1035,18 @@
           <End Type="GSB_Anjaka_SamuelModel.Region" Role="Region" Multiplicity="*" />
           <End Type="GSB_Anjaka_SamuelModel.Visiteur" Role="Visiteur" Multiplicity="*" />
         </Association>
+        <EntityType Name="lesFraisForfait">
+          <Key>
+            <PropertyRef Name="mois" />
+            <PropertyRef Name="annee" />
+          </Key>
+          <Property Name="mois" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="annee" Type="Int32" Nullable="false" />
+          <Property Name="quantite" Type="Int32" />
+          <Property Name="libelle" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="montant" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="16" Scale="2" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1194,6 +1231,18 @@
               <ScalarProperty Name="idRegion" ColumnName="idRegion" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="lesFraisForfait">
+            <EntityTypeMapping TypeName="GSB_Anjaka_SamuelModel.lesFraisForfait">
+              <MappingFragment StoreEntitySet="lesFraisForfait">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="montant" ColumnName="montant" />
+                <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="quantite" ColumnName="quantite" />
+                <ScalarProperty Name="annee" ColumnName="annee" />
+                <ScalarProperty Name="mois" ColumnName="mois" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

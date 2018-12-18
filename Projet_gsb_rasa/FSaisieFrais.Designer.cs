@@ -45,17 +45,19 @@
             this.cbxRegion = new System.Windows.Forms.ComboBox();
             this.lblQteForfait = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.txtQteFF = new System.Windows.Forms.TextBox();
+            this.lblMontantFF = new System.Windows.Forms.Label();
+            this.lblMontantUFF = new System.Windows.Forms.Label();
             this.dgvFraisForfait = new System.Windows.Forms.DataGridView();
             this.btnAjoutFraisForfait = new System.Windows.Forms.Button();
             this.bscbxLib = new System.Windows.Forms.BindingSource(this.components);
             this.bscbxRegion = new System.Windows.Forms.BindingSource(this.components);
-            this.lblMontantFF = new System.Windows.Forms.Label();
-            this.txtQteFF = new System.Windows.Forms.TextBox();
-            this.lblMontantUFF = new System.Windows.Forms.Label();
+            this.bsDgvLesFraisForfait = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFraisForfait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bscbxLib)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bscbxRegion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDgvLesFraisForfait)).BeginInit();
             this.SuspendLayout();
             // 
             // lblVisiteur
@@ -135,7 +137,7 @@
             // 
             this.lbltxtMontantUnitaire.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbltxtMontantUnitaire.AutoSize = true;
-            this.lbltxtMontantUnitaire.Location = new System.Drawing.Point(490, 10);
+            this.lbltxtMontantUnitaire.Location = new System.Drawing.Point(489, 10);
             this.lbltxtMontantUnitaire.Name = "lbltxtMontantUnitaire";
             this.lbltxtMontantUnitaire.Size = new System.Drawing.Size(83, 13);
             this.lbltxtMontantUnitaire.TabIndex = 10;
@@ -158,7 +160,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.78811F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tableLayoutPanel1.Controls.Add(this.cbxLib, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblRegion, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblLib, 0, 0);
@@ -212,7 +214,7 @@
             // 
             this.lblQteForfait.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblQteForfait.AutoSize = true;
-            this.lblQteForfait.Location = new System.Drawing.Point(361, 10);
+            this.lblQteForfait.Location = new System.Drawing.Point(360, 10);
             this.lblQteForfait.Name = "lblQteForfait";
             this.lblQteForfait.Size = new System.Drawing.Size(47, 13);
             this.lblQteForfait.TabIndex = 15;
@@ -227,6 +229,34 @@
             this.lblTotal.Size = new System.Drawing.Size(31, 13);
             this.lblTotal.TabIndex = 16;
             this.lblTotal.Text = "Total";
+            // 
+            // txtQteFF
+            // 
+            this.txtQteFF.Location = new System.Drawing.Point(312, 36);
+            this.txtQteFF.Name = "txtQteFF";
+            this.txtQteFF.Size = new System.Drawing.Size(100, 20);
+            this.txtQteFF.TabIndex = 18;
+            this.txtQteFF.TextChanged += new System.EventHandler(this.txtQteFF_TextChanged);
+            // 
+            // lblMontantFF
+            // 
+            this.lblMontantFF.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMontantFF.AutoSize = true;
+            this.lblMontantFF.Location = new System.Drawing.Point(624, 43);
+            this.lblMontantFF.Name = "lblMontantFF";
+            this.lblMontantFF.Size = new System.Drawing.Size(46, 13);
+            this.lblMontantFF.TabIndex = 17;
+            this.lblMontantFF.Text = "Montant";
+            // 
+            // lblMontantUFF
+            // 
+            this.lblMontantUFF.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMontantUFF.AutoSize = true;
+            this.lblMontantUFF.Location = new System.Drawing.Point(490, 43);
+            this.lblMontantUFF.Name = "lblMontantUFF";
+            this.lblMontantUFF.Size = new System.Drawing.Size(82, 13);
+            this.lblMontantUFF.TabIndex = 19;
+            this.lblMontantUFF.Text = "MontantUnitaire";
             // 
             // dgvFraisForfait
             // 
@@ -249,34 +279,6 @@
             // bscbxLib
             // 
             this.bscbxLib.CurrentChanged += new System.EventHandler(this.bscbxLib_CurrentChanged);
-            // 
-            // lblMontantFF
-            // 
-            this.lblMontantFF.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblMontantFF.AutoSize = true;
-            this.lblMontantFF.Location = new System.Drawing.Point(625, 43);
-            this.lblMontantFF.Name = "lblMontantFF";
-            this.lblMontantFF.Size = new System.Drawing.Size(46, 13);
-            this.lblMontantFF.TabIndex = 17;
-            this.lblMontantFF.Text = "Montant";
-            // 
-            // txtQteFF
-            // 
-            this.txtQteFF.Location = new System.Drawing.Point(313, 36);
-            this.txtQteFF.Name = "txtQteFF";
-            this.txtQteFF.Size = new System.Drawing.Size(100, 20);
-            this.txtQteFF.TabIndex = 18;
-            this.txtQteFF.TextChanged += new System.EventHandler(this.txtQteFF_TextChanged);
-            // 
-            // lblMontantUFF
-            // 
-            this.lblMontantUFF.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblMontantUFF.AutoSize = true;
-            this.lblMontantUFF.Location = new System.Drawing.Point(491, 43);
-            this.lblMontantUFF.Name = "lblMontantUFF";
-            this.lblMontantUFF.Size = new System.Drawing.Size(82, 13);
-            this.lblMontantUFF.TabIndex = 19;
-            this.lblMontantUFF.Text = "MontantUnitaire";
             // 
             // FSaisieFrais
             // 
@@ -302,6 +304,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvFraisForfait)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bscbxLib)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bscbxRegion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDgvLesFraisForfait)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,5 +334,6 @@
         private System.Windows.Forms.Label lblMontantFF;
         private System.Windows.Forms.TextBox txtQteFF;
         private System.Windows.Forms.Label lblMontantUFF;
+        private System.Windows.Forms.BindingSource bsDgvLesFraisForfait;
     }
 }
